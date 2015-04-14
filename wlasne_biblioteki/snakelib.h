@@ -1,16 +1,18 @@
-
-
-
-
 #include "tm_stm32f4_pcd8544.h"
 
 #define BOXDIMENSION 	4   // 4x4 pixels
 #define BOXDIM 		BOXDIMENSION
 
+
+
+
+
 /*
     Draw filled square
     x - coordinate of left top point
     y - coordinate of left top point
+
+    Box dimension is stored in BOXDIMENSION
 
     PCD8544_Pixel_t color:
      - PCD8544_Pixel_Clear
@@ -19,9 +21,9 @@
 void  DrawFilledBox(unsigned char x, unsigned char y, PCD8544_Pixel_t color);
 
 
-
 /*
  * Draw empty square frame
+ * Box dimension is stored in BOXDIMENSION
  */
 void DrawEmptyBox(unsigned char x, unsigned char y);
 

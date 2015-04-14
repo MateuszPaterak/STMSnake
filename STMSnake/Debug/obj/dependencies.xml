@@ -1,31 +1,47 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dependencies>
-   <includePath signature="/ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\cmsis /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\wlasne_biblioteki\tm_stm32fpcd8544 /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\cmsis_lib\include /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\wlasne_biblioteki /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\cmsis_lib /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\wlasne_biblioteki\tm_stm32fgpio /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\cmsis_boot /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\wlasne_biblioteki\tm_stm32fspi /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\wlasne_biblioteki\Nokia_3310">
-      <source file="..\..\..\wlasne_biblioteki\tm_stm32fpcd8544\tm_stm32f4_pcd8544.h" lastModified="14817bbd92b">
+   <includePath signature="/ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\STMSnake\STMSnake\wlasne_biblioteki\tm_stm32f4_rng /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\STMSnake\STMSnake\wlasne_biblioteki /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\STMSnake /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\STMSnake\STMSnake\wlasne_biblioteki\tm_stm32fspi /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\STMSnake\STMSnake\wlasne_biblioteki\tm_stm32fgpio /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\STMSnake\STMSnake\cmsis_lib /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\STMSnake\STMSnake\cmsis_boot /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\STMSnake\STMSnake\wlasne_biblioteki\tm_stm32fpcd8544 /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\STMSnake\STMSnake /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\STMSnake\STMSnake\cmsis /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\STMSnake\STMSnake\cmsis_lib\include">
+      <source file="..\..\..\wlasne_biblioteki\tm_stm32fpcd8544\tm_stm32f4_pcd8544.h" lastModified="14cb7ad42f5">
          <include file="..\..\..\wlasne_biblioteki\tm_stm32fpcd8544\defines.h"/>
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
          <include file="..\..\..\wlasne_biblioteki\tm_stm32fspi\tm_stm32f4_spi.h"/>
       </source>
-      <source file="..\..\..\bitmap.h" lastModified="14cb43f104b">
+      <source file="..\..\..\wlasne_biblioteki\tm_stm32f4_rng\tm_stm32f4_rng.h" lastModified="14cb8712da5">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+         <include file="..\..\..\wlasne_biblioteki\tm_stm32fpcd8544\defines.h"/>
       </source>
-      <source file="..\..\..\cmsis\core_cmInstr.h" lastModified="14c9a0e1216">
+      <source file="..\..\..\bitmap.h" lastModified="14cb7ad4273">
       </source>
-      <source file="..\..\..\cmsis\core_cm4.h" lastModified="14c9a0e0e0a">
+      <source file="..\..\..\cmsis\core_cmInstr.h" lastModified="14cb7ad4a54">
+      </source>
+      <source file="..\..\..\cmsis\core_cm4.h" lastModified="14cb7ad465e">
          <include file="..\..\..\cmsis\core_cmInstr.h"/>
          <include file="..\..\..\cmsis\core_cmFunc.h"/>
          <include file="..\..\..\cmsis\core_cm4_simd.h"/>
       </source>
-      <source file="..\..\..\wlasne_biblioteki\tm_stm32fpcd8544\tm_stm32f4_pcd8544.c" lastModified="14c9ae112a8">
+      <source file="..\..\..\wlasne_biblioteki\tm_stm32fpcd8544\tm_stm32f4_pcd8544.c" lastModified="14cb7ad42f3">
          <include file="..\..\..\wlasne_biblioteki\tm_stm32fpcd8544\tm_stm32f4_pcd8544.h"/>
       </source>
-      <source file="..\..\..\wlasne_biblioteki\tm_stm32fpcd8544\defines.h" lastModified="14c9aec3363">
+      <source file="..\..\..\wlasne_biblioteki\tm_stm32f4_rng\tm_stm32f4_rng.c" lastModified="14c76a993e4">
+         <include file="..\..\..\wlasne_biblioteki\tm_stm32f4_rng\tm_stm32f4_rng.h"/>
       </source>
-      <source file="..\..\..\wlasne_biblioteki\snakelib.h" lastModified="14cb4ada737">
+      <source file="..\..\..\demo.h" lastModified="14cb8a40958">
+      </source>
+      <source file="..\..\..\wlasne_biblioteki\tm_stm32fpcd8544\defines.h" lastModified="14cb7ad42ea">
+      </source>
+      <source file="..\..\..\wlasne_biblioteki\snakelib.h" lastModified="14cb89597f0">
          <include file="..\..\..\wlasne_biblioteki\tm_stm32fpcd8544\tm_stm32f4_pcd8544.h"/>
       </source>
-      <source file="..\..\..\wlasne_biblioteki\tm_stm32fspi\tm_stm32f4_spi.h" lastModified="14c74a51c1c">
+      <source file="..\..\..\demo.c" lastModified="14cb8aa4723">
+         <include file="..\..\..\wlasne_biblioteki\snakelib.h"/>
+         <include file="..\..\..\wlasne_biblioteki\tm_stm32fpcd8544\tm_stm32f4_pcd8544.h"/>
+         <include file="..\..\..\wlasne_biblioteki\tm_stm32f4_rng\tm_stm32f4_rng.h"/>
+         <include file="..\..\..\wlasne_biblioteki\main_menu_lib.h"/>
+         <include file="..\..\..\demo.h"/>
+      </source>
+      <source file="..\..\..\wlasne_biblioteki\tm_stm32fspi\tm_stm32f4_spi.h" lastModified="14cb7ad42f9">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
@@ -34,58 +50,61 @@
          <include file="..\..\..\wlasne_biblioteki\attributes.h"/>
          <include file="..\..\..\wlasne_biblioteki\tm_stm32fgpio\tm_stm32f4_gpio.h"/>
       </source>
-      <source file="..\..\..\wlasne_biblioteki\snakelib.c" lastModified="14cb495623a">
+      <source file="..\..\..\wlasne_biblioteki\snakelib.c" lastModified="14cb7ad42e4">
          <include file="..\..\..\wlasne_biblioteki\snakelib.h"/>
          <include file="..\..\..\wlasne_biblioteki\include.h"/>
       </source>
-      <source file="..\..\..\wlasne_biblioteki\tm_stm32fspi\tm_stm32f4_spi.c" lastModified="14c9b1385c5">
+      <source file="..\..\..\wlasne_biblioteki\tm_stm32fspi\tm_stm32f4_spi.c" lastModified="14cb7ad42f7">
          <include file="..\..\..\wlasne_biblioteki\tm_stm32fspi\tm_stm32f4_spi.h"/>
       </source>
-      <source file="..\..\..\cmsis_boot\system_stm32f4xx.h" lastModified="14c9a0e2c57">
+      <source file="..\..\..\cmsis_boot\system_stm32f4xx.h" lastModified="14cb7ad42a5">
       </source>
-      <source file="..\..\..\cmsis_boot\system_stm32f4xx.c" lastModified="14c9a14576a">
+      <source file="..\..\..\cmsis_boot\system_stm32f4xx.c" lastModified="14cb7ad42a4">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
       </source>
-      <source file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h" lastModified="14c9a0ebafe">
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h" lastModified="14cb7ad42a7">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
       </source>
-      <source file="..\..\..\wlasne_biblioteki\tm_stm32fgpio\tm_stm32f4_gpio.h" lastModified="14c8b4361bb">
+      <source file="..\..\..\wlasne_biblioteki\tm_stm32fgpio\tm_stm32f4_gpio.h" lastModified="14cb7ad42e9">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
          <include file="..\..\..\wlasne_biblioteki\tm_stm32fpcd8544\defines.h"/>
       </source>
-      <source file="..\..\..\cmsis_boot\stm32f4xx_conf.h" lastModified="14c9a0e8238">
+      <source file="..\..\..\cmsis_boot\stm32f4xx_conf.h" lastModified="14cb7ad9889">
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_spi.h"/>
       </source>
-      <source file="..\..\..\cmsis_boot\stm32f4xx.h" lastModified="14c9a16fd50">
+      <source file="..\..\..\cmsis_boot\stm32f4xx.h" lastModified="14cb7ad467f">
          <include file="..\..\..\cmsis\core_cm4.h"/>
          <include file="..\..\..\cmsis_boot\system_stm32f4xx.h"/>
          <include file="..\..\..\cmsis_boot\stm32f4xx_conf.h"/>
       </source>
-      <source file="..\..\..\cmsis_lib\source\stm32f4xx_spi.c" lastModified="14c9a0edc5c">
+      <source file="..\..\..\cmsis_lib\source\stm32f4xx_spi.c" lastModified="14cb7ad42b9">
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_spi.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
       </source>
-      <source file="..\..\..\wlasne_biblioteki\tm_stm32fgpio\tm_stm32f4_gpio.c" lastModified="14c97d9f68b">
+      <source file="..\..\..\wlasne_biblioteki\tm_stm32fgpio\tm_stm32f4_gpio.c" lastModified="14cb7ad42e7">
          <include file="..\..\..\wlasne_biblioteki\tm_stm32fgpio\tm_stm32f4_gpio.h"/>
       </source>
-      <source file="..\..\..\wlasne_biblioteki\main_menu_lib.h" lastModified="14cb4b66ec5">
+      <source file="..\..\..\wlasne_biblioteki\main_menu_lib.h" lastModified="14cb8a04176">
          <include file="..\..\..\wlasne_biblioteki\tm_stm32fpcd8544\tm_stm32f4_pcd8544.h"/>
       </source>
-      <source file="..\..\..\cmsis\core_cmFunc.h" lastModified="14c9a0e1209">
+      <source file="..\..\..\cmsis\core_cmFunc.h" lastModified="14cb7ad4a4a">
       </source>
-      <source file="..\..\..\wlasne_biblioteki\attributes.h" lastModified="14c9b0b010a">
+      <source file="..\..\..\wlasne_biblioteki\attributes.h" lastModified="14cb7ad42d8">
       </source>
-      <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="14c9a0e58fe">
+      <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="14cb7ad42b7">
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
       </source>
-      <source file="..\..\..\wlasne_biblioteki\main_menu_lib.c" lastModified="14cb4b7bea7">
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_spi.h" lastModified="14cb7ad42aa">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\wlasne_biblioteki\main_menu_lib.c" lastModified="14cb7ad42da">
          <include file="..\..\..\wlasne_biblioteki\include.h"/>
          <include file="..\..\..\wlasne_biblioteki\main_menu_lib.h"/>
       </source>
-      <source file="..\..\..\wlasne_biblioteki\include.h" lastModified="14cb01fcfe4">
+      <source file="..\..\..\wlasne_biblioteki\include.h" lastModified="14cb7ad42d9">
          <include file="..\..\..\cmsis_boot\stm32f4xx_conf.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
@@ -96,183 +115,15 @@
          <include file="..\..\..\wlasne_biblioteki\attributes.h"/>
          <include file="..\..\..\wlasne_biblioteki\tm_stm32fgpio\tm_stm32f4_gpio.h"/>
       </source>
-      <source file="..\..\..\cmsis_lib\include\stm32f4xx_spi.h" lastModified="14c9a0edc53">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      <source file="..\..\..\cmsis_boot\startup\startup_stm32f4xx.c" lastModified="14cb7ad4286">
       </source>
-      <source file="..\..\..\cmsis_boot\startup\startup_stm32f4xx.c" lastModified="14c9a0e2c18">
-      </source>
-      <source file="..\..\..\cmsis_lib\source\stm32f4xx_gpio.c" lastModified="14c9a0ebb08">
+      <source file="..\..\..\cmsis_lib\source\stm32f4xx_gpio.c" lastModified="14cb7ad42b5">
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
       </source>
-      <source file="..\..\..\cmsis\core_cm4_simd.h" lastModified="14c9a0e11f8">
+      <source file="..\..\..\cmsis\core_cm4_simd.h" lastModified="14cb7ad4a48">
       </source>
-      <source file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h" lastModified="14c9a0e58f2">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-      </source>
-   </includePath>
-   <includePath signature="/ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\cmsis /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\wlasne_biblioteki\tm_stm32fpcd8544 /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\cmsis_lib\include /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\wlasne_biblioteki /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\cmsis_lib /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\wlasne_biblioteki\tm_stm32fgpio /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\cmsis_boot /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\wlasne_biblioteki\tm_stm32fspi /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\wlasne_biblioteki\Nokia_3310">
-      <source file="..\..\..\wlasne_biblioteki\tm_stm32fpcd8544\tm_stm32f4_pcd8544.h" lastModified="14817bbd92b">
-         <include file="..\..\..\wlasne_biblioteki\tm_stm32fpcd8544\defines.h"/>
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
-         <include file="..\..\..\wlasne_biblioteki\tm_stm32fspi\tm_stm32f4_spi.h"/>
-      </source>
-      <source file="..\..\..\wlasne_biblioteki\tm_stm32fpcd8544\tm_stm32f4_pcd8544.c" lastModified="14c9ae112a8">
-         <include file="..\..\..\wlasne_biblioteki\tm_stm32fpcd8544\tm_stm32f4_pcd8544.h"/>
-      </source>
-      <source file="..\..\..\wlasne_biblioteki\tm_stm32fpcd8544\defines.h" lastModified="14c9aec3363">
-      </source>
-      <source file="..\..\..\wlasne_biblioteki\tm_stm32fspi\tm_stm32f4_spi.h" lastModified="14c74a51c1c">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_spi.h"/>
-         <include file="..\..\..\wlasne_biblioteki\tm_stm32fpcd8544\defines.h"/>
-         <include file="..\..\..\wlasne_biblioteki\attributes.h"/>
-         <include file="..\..\..\wlasne_biblioteki\tm_stm32fgpio\tm_stm32f4_gpio.h"/>
-      </source>
-      <source file="..\..\..\wlasne_biblioteki\tm_stm32fspi\tm_stm32f4_spi.c" lastModified="14c9b1385c5">
-         <include file="..\..\..\wlasne_biblioteki\tm_stm32fspi\tm_stm32f4_spi.h"/>
-      </source>
-      <source file="..\..\..\cmsis_boot\system_stm32f4xx.h" lastModified="14c9a0e2c57">
-      </source>
-      <source file="..\..\..\cmsis_boot\system_stm32f4xx.c" lastModified="14c9a14576a">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h" lastModified="14c9a0ebafe">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-      </source>
-      <source file="..\..\..\wlasne_biblioteki\tm_stm32fgpio\tm_stm32f4_gpio.h" lastModified="14c8b4361bb">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
-         <include file="..\..\..\wlasne_biblioteki\tm_stm32fpcd8544\defines.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\source\stm32f4xx_spi.c" lastModified="14c9a0edc5c">
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_spi.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
-      </source>
-      <source file="..\..\..\wlasne_biblioteki\tm_stm32fgpio\tm_stm32f4_gpio.c" lastModified="14c97d9f68b">
-         <include file="..\..\..\wlasne_biblioteki\tm_stm32fgpio\tm_stm32f4_gpio.h"/>
-      </source>
-      <source file="..\..\..\wlasne_biblioteki\attributes.h" lastModified="14c9b0b010a">
-      </source>
-      <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="14c9a0e58fe">
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\include\stm32f4xx_spi.h" lastModified="14c9a0edc53">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-      </source>
-      <source file="..\..\..\cmsis_boot\startup\startup_stm32f4xx.c" lastModified="14c9a0e2c18">
-      </source>
-      <source file="..\..\..\cmsis_lib\source\stm32f4xx_gpio.c" lastModified="14c9a0ebb08">
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h" lastModified="14c9a0e58f2">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-      </source>
-   </includePath>
-   <includePath signature="/ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\cmsis /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\cmsis_lib\include /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\wlasne_biblioteki /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\cmsis_lib /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\Drivers /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\Drivers\pcd8544 /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\cmsis_boot /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\wlasne_biblioteki\Nokia_3310">
-      <source file="..\..\..\wlasne_biblioteki\Nokia_3310\lcd_pcd8544_lib.c" lastModified="14c9ac432f9">
-         <include file="..\..\..\wlasne_biblioteki\include.h"/>
-      </source>
-      <source file="..\..\..\wlasne_biblioteki\Nokia_3310\font1.h" lastModified="14c9a641818">
-      </source>
-      <source file="..\..\..\wlasne_biblioteki\Nokia_3310\logo.h" lastModified="14c9897d313">
-      </source>
-      <source file="..\..\..\cmsis_boot\system_stm32f4xx.h" lastModified="14c9a0e2c57">
-      </source>
-      <source file="..\..\..\cmsis_boot\system_stm32f4xx.c" lastModified="14c9a14576a">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h" lastModified="14c9a0ebafe">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\source\stm32f4xx_spi.c" lastModified="14c9a0edc5c">
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_spi.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="14c9a0e58fe">
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\include\stm32f4xx_spi.h" lastModified="14c9a0edc53">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-      </source>
-      <source file="..\..\..\cmsis_boot\startup\startup_stm32f4xx.c" lastModified="14c9a0e2c18">
-      </source>
-      <source file="..\..\..\cmsis_lib\source\stm32f4xx_gpio.c" lastModified="14c9a0ebb08">
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
-      </source>
-      <source file="..\..\..\wlasne_biblioteki\Nokia_3310\lcd_pcd8544_lib.h" lastModified="14c9a2b709e">
-      </source>
-      <source file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h" lastModified="14c9a0e58f2">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-      </source>
-   </includePath>
-   <includePath signature="/ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\cmsis /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\cmsis_lib\include /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\wlasne_biblioteki /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\cmsis_lib /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\cmsis_boot /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\wlasne_biblioteki\Nokia_3310">
-      <source file="..\..\..\wlasne_biblioteki\Nokia_3310\font1.h" lastModified="14c9a641818">
-      </source>
-      <source file="..\..\..\wlasne_biblioteki\Nokia_3310\logo.h" lastModified="14c9897d313">
-      </source>
-      <source file="..\..\..\cmsis_boot\system_stm32f4xx.h" lastModified="14c9a0e2c57">
-      </source>
-      <source file="..\..\..\cmsis_boot\system_stm32f4xx.c" lastModified="14c9a14576a">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h" lastModified="14c9a0ebafe">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\source\stm32f4xx_spi.c" lastModified="14c9a0edc5c">
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_spi.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="14c9a0e58fe">
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\include\stm32f4xx_spi.h" lastModified="14c9a0edc53">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-      </source>
-      <source file="..\..\..\cmsis_boot\startup\startup_stm32f4xx.c" lastModified="14c9a0e2c18">
-      </source>
-      <source file="..\..\..\cmsis_lib\source\stm32f4xx_gpio.c" lastModified="14c9a0ebb08">
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
-      </source>
-      <source file="..\..\..\wlasne_biblioteki\Nokia_3310\lcd_pcd8544_lib.h" lastModified="14c9a2b709e">
-      </source>
-      <source file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h" lastModified="14c9a0e58f2">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-      </source>
-   </includePath>
-   <includePath signature="/ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\cmsis /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\wlasne_biblioteki\tm_stm32fpcd8544 /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\cmsis_lib\include /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\wlasne_biblioteki /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\cmsis_lib /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\cmsis_boot /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\wlasne_biblioteki\tm_stm32fspi /ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\wlasne_biblioteki\Nokia_3310">
-      <source file="..\..\..\cmsis_boot\system_stm32f4xx.h" lastModified="14c9a0e2c57">
-      </source>
-      <source file="..\..\..\cmsis_boot\system_stm32f4xx.c" lastModified="14c9a14576a">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h" lastModified="14c9a0ebafe">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\source\stm32f4xx_spi.c" lastModified="14c9a0edc5c">
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_spi.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="14c9a0e58fe">
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\include\stm32f4xx_spi.h" lastModified="14c9a0edc53">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-      </source>
-      <source file="..\..\..\cmsis_boot\startup\startup_stm32f4xx.c" lastModified="14c9a0e2c18">
-      </source>
-      <source file="..\..\..\cmsis_lib\source\stm32f4xx_gpio.c" lastModified="14c9a0ebb08">
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h" lastModified="14c9a0e58f2">
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h" lastModified="14cb7ad42a9">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
       </source>
    </includePath>

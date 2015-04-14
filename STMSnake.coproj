@@ -76,46 +76,50 @@
   </Components>
   <Files>
     <File name="cmsis_lib/source/stm32f4xx_gpio.c" path="cmsis_lib/source/stm32f4xx_gpio.c" type="1"/>
-    <File name="N3310zNetu/tm_stm32f4_spi.c" path="wlasne_biblioteki/tm_stm32fspi/tm_stm32f4_spi.c" type="1"/>
     <File name="cmsis_boot/startup/startup_stm32f4xx.c" path="cmsis_boot/startup/startup_stm32f4xx.c" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_rcc.c" path="cmsis_lib/source/stm32f4xx_rcc.c" type="1"/>
+    <File name="demo.c" path="demo.c" type="1"/>
     <File name="biblioteki" path="" type="2"/>
-    <File name="main_menu_lib.h" path="wlasne_biblioteki/main_menu_lib.h" type="1"/>
+    <File name="biblioteki/RNG/tm_stm32f4_rng.h" path="wlasne_biblioteki/tm_stm32f4_rng/tm_stm32f4_rng.h" type="1"/>
     <File name="cmsis/core_cmInstr.h" path="cmsis/core_cmInstr.h" type="1"/>
-    <File name="bitmap.h" path="bitmap.h" type="1"/>
     <File name="cmsis_boot" path="" type="2"/>
-    <File name="biblioteki/snakelib.h" path="wlasne_biblioteki/snakelib.h" type="1"/>
-    <File name="N3310zNetu/attributes.h" path="wlasne_biblioteki/attributes.h" type="1"/>
-    <File name="N3310zNetu/tm_stm32f4_gpio.h" path="wlasne_biblioteki/tm_stm32fgpio/tm_stm32f4_gpio.h" type="1"/>
-    <File name="biblioteki/Nokia3310/lcd_pcd8544_lib.h" path="wlasne_biblioteki/Nokia_3310/lcd_pcd8544_lib.h" type="1"/>
-    <File name="cmsis/core_cm4_simd.h" path="cmsis/core_cm4_simd.h" type="1"/>
+    <File name="biblioteki/GPIO/tm_stm32f4_gpio.h" path="wlasne_biblioteki/tm_stm32fgpio/tm_stm32f4_gpio.h" type="1"/>
+    <File name="biblioteki/GPIO" path="" type="2"/>
+    <File name="biblioteki/attributes.h" path="wlasne_biblioteki/attributes.h" type="1"/>
     <File name="cmsis_boot/startup" path="" type="2"/>
     <File name="cmsis_boot/stm32f4xx.h" path="cmsis_boot/stm32f4xx.h" type="1"/>
+    <File name="cmsis/core_cm4_simd.h" path="cmsis/core_cm4_simd.h" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_spi.c" path="cmsis_lib/source/stm32f4xx_spi.c" type="1"/>
-    <File name="N3310zNetu/tm_stm32f4_pcd8544.c" path="wlasne_biblioteki/tm_stm32fpcd8544/tm_stm32f4_pcd8544.c" type="1"/>
     <File name="cmsis/core_cmFunc.h" path="cmsis/core_cmFunc.h" type="1"/>
-    <File name="cmsis_boot/system_stm32f4xx.c" path="cmsis_boot/system_stm32f4xx.c" type="1"/>
+    <File name="biblioteki/Snake lib/snakelib.h" path="wlasne_biblioteki/snakelib.h" type="1"/>
     <File name="cmsis/core_cm4.h" path="cmsis/core_cm4.h" type="1"/>
+    <File name="cmsis_boot/system_stm32f4xx.c" path="cmsis_boot/system_stm32f4xx.c" type="1"/>
+    <File name="biblioteki/SPI/tm_stm32f4_spi.h" path="wlasne_biblioteki/tm_stm32fspi/tm_stm32f4_spi.h" type="1"/>
+    <File name="biblioteki/Snake lib/main_menu_lib.c" path="wlasne_biblioteki/main_menu_lib.c" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_spi.h" path="cmsis_lib/include/stm32f4xx_spi.h" type="1"/>
-    <File name="N3310zNetu" path="" type="2"/>
-    <File name="N3310zNetu/tm_stm32f4_spi.h" path="wlasne_biblioteki/tm_stm32fspi/tm_stm32f4_spi.h" type="1"/>
+    <File name="biblioteki/N3310/tm_stm32f4_pcd8544.c" path="wlasne_biblioteki/tm_stm32fpcd8544/tm_stm32f4_pcd8544.c" type="1"/>
     <File name="cmsis" path="" type="2"/>
+    <File name="biblioteki/RNG/tm_stm32f4_rng.c" path="wlasne_biblioteki/tm_stm32f4_rng/tm_stm32f4_rng.c" type="1"/>
     <File name="cmsis_lib" path="" type="2"/>
     <File name="biblioteki/include.h" path="wlasne_biblioteki/include.h" type="1"/>
+    <File name="biblioteki/bitmap.h" path="bitmap.h" type="1"/>
     <File name="cmsis_lib/source" path="" type="2"/>
-    <File name="N3310zNetu/defines.h" path="wlasne_biblioteki/tm_stm32fpcd8544/defines.h" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_gpio.h" path="cmsis_lib/include/stm32f4xx_gpio.h" type="1"/>
-    <File name="biblioteki/Nokia3310/font1.h" path="wlasne_biblioteki/Nokia_3310/font1.h" type="1"/>
-    <File name="N3310zNetu/tm_stm32f4_pcd8544.h" path="wlasne_biblioteki/tm_stm32fpcd8544/tm_stm32f4_pcd8544.h" type="1"/>
+    <File name="biblioteki/Snake lib/main_menu_lib.h" path="wlasne_biblioteki/main_menu_lib.h" type="1"/>
+    <File name="biblioteki/N3310" path="" type="2"/>
     <File name="cmsis_boot/stm32f4xx_conf.h" path="cmsis_boot/stm32f4xx_conf.h" type="1"/>
+    <File name="biblioteki/SPI" path="" type="2"/>
     <File name="cmsis_boot/system_stm32f4xx.h" path="cmsis_boot/system_stm32f4xx.h" type="1"/>
+    <File name="demo.h" path="demo.h" type="1"/>
+    <File name="biblioteki/Snake lib" path="" type="2"/>
     <File name="cmsis_lib/include" path="" type="2"/>
-    <File name="biblioteki/snakelib.c" path="wlasne_biblioteki/snakelib.c" type="1"/>
+    <File name="biblioteki/SPI/tm_stm32f4_spi.c" path="wlasne_biblioteki/tm_stm32fspi/tm_stm32f4_spi.c" type="1"/>
+    <File name="biblioteki/N3310/tm_stm32f4_pcd8544.h" path="wlasne_biblioteki/tm_stm32fpcd8544/tm_stm32f4_pcd8544.h" type="1"/>
+    <File name="biblioteki/Snake lib/snakelib.c" path="wlasne_biblioteki/snakelib.c" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_rcc.h" path="cmsis_lib/include/stm32f4xx_rcc.h" type="1"/>
-    <File name="main_menu_lib.c" path="wlasne_biblioteki/main_menu_lib.c" type="1"/>
-    <File name="N3310zNetu/tm_stm32f4_gpio.c" path="wlasne_biblioteki/tm_stm32fgpio/tm_stm32f4_gpio.c" type="1"/>
-    <File name="biblioteki/Nokia3310/logo.h" path="wlasne_biblioteki/Nokia_3310/logo.h" type="1"/>
+    <File name="biblioteki/RNG" path="" type="2"/>
+    <File name="biblioteki/GPIO/tm_stm32f4_gpio.c" path="wlasne_biblioteki/tm_stm32fgpio/tm_stm32f4_gpio.c" type="1"/>
     <File name="main.c" path="main.c" type="1"/>
-    <File name="biblioteki/Nokia3310" path="" type="2"/>
+    <File name="biblioteki/defines.h" path="wlasne_biblioteki/tm_stm32fpcd8544/defines.h" type="1"/>
   </Files>
 </Project>
