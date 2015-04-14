@@ -2,16 +2,15 @@
 #include "stm32f4xx_gpio.h"
 #include "stm32f4xx_rcc.h"
 
-#include "snakelib.h"
-
 #include "defines.h"
+#include "attributes.h"
 #include "tm_stm32f4_pcd8544.h"
 #include "tm_stm32f4_spi.h"
-#include "attributes.h"
 #include "tm_stm32f4_gpio.h"
 
+#include "snakelib.h"
+#include "main_menu_lib.h"
+#include "tm_stm32f4_rng.h"
+#include "demo.h"
 
-//#include "stm32f4xx_spi.h"
-//#include "font1.h"
-//#include "lcd_pcd8544_lib.h"
 

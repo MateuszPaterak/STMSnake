@@ -46,7 +46,7 @@ void DrawEmptyBoxInGrid(unsigned char x, unsigned char y);
  * Display has 6x84 lines
  * From top left to bottom right corner
  */
-void DrawBitMapVertical(unsigned char *bitmap);
+void DrawBitMap(unsigned char *bitmap);
 
 /*
  * Flipped pictures!

@@ -560,7 +560,7 @@ void PCD8544_DrawRectangle(unsigned char x0, unsigned char y0, unsigned char x1,
 }
 
 void PCD8544_DrawFilledRectangle(unsigned char x0, unsigned char y0, unsigned char x1, unsigned char y1, PCD8544_Pixel_t color) {
-	for (; y0 < y1; y0++) {
+	for (; y0 <= y1; y0++) { //attention!! was y0 < y1 and the last line wasn't draw!
 		PCD8544_DrawLine(x0, y0, x1, y0, color);
 	}
 }

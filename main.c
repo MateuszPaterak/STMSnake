@@ -1,9 +1,5 @@
 #include "include.h"
-//#include "logo.h"
 #include "bitmap.h"
-#include "main_menu_lib.h"
-
-#include "tm_stm32f4_rng.h"
 
 int main(void)
 {
@@ -15,19 +11,17 @@ int main(void)
     //Initialize LCD with 0x38 software contrast
     PCD8544_Init(0x38);
 
-    DrawBitMapVertical(SnakeBitMap3310Vertical);
+    DrawBitMap(SnakeBitMap3310Vertical);
     PCD8544_Refresh();
-    PCD8544_Delay(20000000);
-
-
-    uint32_t x;
+    PCD8544_Delay(10000000);
+    PCD8544_Clear();
 
     while (1)
 	{
-	PCD8544_Clear();
+
 	DemoRandomPikselBoxGenerator();
 	PCD8544_Refresh();
-	PCD8544_Delay(10000000);
+	PCD8544_Delay(1000000);
 
 
     }

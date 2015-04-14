@@ -231,6 +231,14 @@ Discarded input sections
                 0x00000000       0x78 ..\obj\stm32f4xx_spi.o
  .text.SPI_I2S_ClearITPendingBit
                 0x00000000       0x34 ..\obj\stm32f4xx_spi.o
+ .text          0x00000000        0x0 ..\obj\bitmap.o
+ .data          0x00000000        0x0 ..\obj\bitmap.o
+ .bss           0x00000000        0x0 ..\obj\bitmap.o
+ .debug_line    0x00000000        0x0 ..\obj\bitmap.o
+ .debug_str     0x00000000        0x0 ..\obj\bitmap.o
+ .comment       0x00000000       0x71 ..\obj\bitmap.o
+ .ARM.attributes
+                0x00000000       0x33 ..\obj\bitmap.o
  .text          0x00000000        0x0 ..\obj\tm_stm32f4_gpio.o
  .data          0x00000000        0x0 ..\obj\tm_stm32f4_gpio.o
  .bss           0x00000000        0x0 ..\obj\tm_stm32f4_gpio.o
@@ -258,7 +266,7 @@ Discarded input sections
  .text.DrawEmptyBox
                 0x00000000       0x4c ..\obj\snakelib.o
  .text.DrawEmptyBoxInGrid
-                0x00000000       0x74 ..\obj\snakelib.o
+                0x00000000       0x7c ..\obj\snakelib.o
  .text.DrawBitMapVerticalFlipped
                 0x00000000       0x44 ..\obj\snakelib.o
  .text          0x00000000        0x0 ..\obj\tm_stm32f4_pcd8544.o
@@ -291,7 +299,7 @@ Linker script and memory map
 
                 0x20020000                _eram = 0x20020000
 
-.text           0x08000000     0x1384
+.text           0x08000000     0x139c
  *(.isr_vector)
  .isr_vector    0x08000000      0x188 ..\obj\startup_stm32f4xx.o
                 0x08000000                g_pfnVectors
@@ -393,120 +401,120 @@ Linker script and memory map
                 0x080001e4                I2C1_ER_IRQHandler
                 0x080001e4                DMA2_Stream6_IRQHandler
                 0x080001e4                DMA1_Stream3_IRQHandler
- .text.main     0x080001ec       0x48 ..\obj\main.o
+ .text.main     0x080001ec       0x44 ..\obj\main.o
                 0x080001ec                main
  .text.RCC_AHB1PeriphClockCmd
-                0x08000234       0x3c ..\obj\stm32f4xx_rcc.o
-                0x08000234                RCC_AHB1PeriphClockCmd
+                0x08000230       0x3c ..\obj\stm32f4xx_rcc.o
+                0x08000230                RCC_AHB1PeriphClockCmd
  .text.DemoRandomPikselBoxGenerator
-                0x08000270       0x64 ..\obj\demo.o
-                0x08000270                DemoRandomPikselBoxGenerator
+                0x0800026c       0x64 ..\obj\demo.o
+                0x0800026c                DemoRandomPikselBoxGenerator
  .text.TM_SPI_Init
-                0x080002d4       0x80 ..\obj\tm_stm32f4_spi.o
-                0x080002d4                TM_SPI_Init
+                0x080002d0       0x80 ..\obj\tm_stm32f4_spi.o
+                0x080002d0                TM_SPI_Init
  .text.TM_SPI_Send
-                0x08000354       0x48 ..\obj\tm_stm32f4_spi.o
-                0x08000354                TM_SPI_Send
+                0x08000350       0x48 ..\obj\tm_stm32f4_spi.o
+                0x08000350                TM_SPI_Send
  .text.TM_SPIx_Init
-                0x0800039c      0x110 ..\obj\tm_stm32f4_spi.o
+                0x08000398      0x110 ..\obj\tm_stm32f4_spi.o
  .text.TM_SPI1_INT_InitPins
-                0x080004ac       0x5c ..\obj\tm_stm32f4_spi.o
-                0x080004ac                TM_SPI1_INT_InitPins
+                0x080004a8       0x5c ..\obj\tm_stm32f4_spi.o
+                0x080004a8                TM_SPI1_INT_InitPins
  .text.TM_SPI2_INT_InitPins
-                0x08000508       0x94 ..\obj\tm_stm32f4_spi.o
-                0x08000508                TM_SPI2_INT_InitPins
+                0x08000504       0x94 ..\obj\tm_stm32f4_spi.o
+                0x08000504                TM_SPI2_INT_InitPins
  .text.TM_SPI3_INT_InitPins
-                0x0800059c       0x60 ..\obj\tm_stm32f4_spi.o
-                0x0800059c                TM_SPI3_INT_InitPins
+                0x08000598       0x60 ..\obj\tm_stm32f4_spi.o
+                0x08000598                TM_SPI3_INT_InitPins
  .text.TM_RNG_Init
-                0x080005fc       0x2c ..\obj\tm_stm32f4_rng.o
-                0x080005fc                TM_RNG_Init
+                0x080005f8       0x2c ..\obj\tm_stm32f4_rng.o
+                0x080005f8                TM_RNG_Init
  .text.TM_RNG_Get
-                0x08000628       0x24 ..\obj\tm_stm32f4_rng.o
-                0x08000628                TM_RNG_Get
+                0x08000624       0x24 ..\obj\tm_stm32f4_rng.o
+                0x08000624                TM_RNG_Get
  .text.GPIO_Init
-                0x0800064c      0x11c ..\obj\stm32f4xx_gpio.o
-                0x0800064c                GPIO_Init
+                0x08000648      0x11c ..\obj\stm32f4xx_gpio.o
+                0x08000648                GPIO_Init
  .text.GPIO_SetBits
-                0x08000768       0x1c ..\obj\stm32f4xx_gpio.o
-                0x08000768                GPIO_SetBits
+                0x08000764       0x1c ..\obj\stm32f4xx_gpio.o
+                0x08000764                GPIO_SetBits
  .text.GPIO_ResetBits
-                0x08000784       0x1c ..\obj\stm32f4xx_gpio.o
-                0x08000784                GPIO_ResetBits
+                0x08000780       0x1c ..\obj\stm32f4xx_gpio.o
+                0x08000780                GPIO_ResetBits
  .text.SystemInit
-                0x080007a0       0x58 ..\obj\system_stm32f4xx.o
-                0x080007a0                SystemInit
+                0x0800079c       0x58 ..\obj\system_stm32f4xx.o
+                0x0800079c                SystemInit
  .text.SetSysClock
-                0x080007f8       0xf4 ..\obj\system_stm32f4xx.o
+                0x080007f4       0xf4 ..\obj\system_stm32f4xx.o
  .text.SPI_Init
-                0x080008ec       0x88 ..\obj\stm32f4xx_spi.o
-                0x080008ec                SPI_Init
+                0x080008e8       0x88 ..\obj\stm32f4xx_spi.o
+                0x080008e8                SPI_Init
  .text.SPI_StructInit
-                0x08000974       0x48 ..\obj\stm32f4xx_spi.o
-                0x08000974                SPI_StructInit
+                0x08000970       0x48 ..\obj\stm32f4xx_spi.o
+                0x08000970                SPI_StructInit
  .text.TM_GPIO_InitAlternate
-                0x080009bc       0x98 ..\obj\tm_stm32f4_gpio.o
-                0x080009bc                TM_GPIO_InitAlternate
+                0x080009b8       0x98 ..\obj\tm_stm32f4_gpio.o
+                0x080009b8                TM_GPIO_InitAlternate
  .text.TM_GPIO_INT_EnableClock
-                0x08000a54       0xf0 ..\obj\tm_stm32f4_gpio.o
-                0x08000a54                TM_GPIO_INT_EnableClock
+                0x08000a50       0xf0 ..\obj\tm_stm32f4_gpio.o
+                0x08000a50                TM_GPIO_INT_EnableClock
  .text.TM_GPIO_INT_Init
-                0x08000b44       0xd0 ..\obj\tm_stm32f4_gpio.o
-                0x08000b44                TM_GPIO_INT_Init
+                0x08000b40       0xd0 ..\obj\tm_stm32f4_gpio.o
+                0x08000b40                TM_GPIO_INT_Init
  .text.DrawFilledBoxInGrid
-                0x08000c14       0x40 ..\obj\snakelib.o
-                0x08000c14                DrawFilledBoxInGrid
- .text.DrawBitMapVertical
-                0x08000c54       0x44 ..\obj\snakelib.o
-                0x08000c54                DrawBitMapVertical
+                0x08000c10       0x48 ..\obj\snakelib.o
+                0x08000c10                DrawFilledBoxInGrid
+ .text.DrawBitMap
+                0x08000c58       0x44 ..\obj\snakelib.o
+                0x08000c58                DrawBitMap
  .text._HelpDrawBitMap
-                0x08000c98       0x7c ..\obj\snakelib.o
-                0x08000c98                _HelpDrawBitMap
+                0x08000c9c       0x7c ..\obj\snakelib.o
+                0x08000c9c                _HelpDrawBitMap
  .text.MathPower
-                0x08000d14       0x44 ..\obj\snakelib.o
-                0x08000d14                MathPower
+                0x08000d18       0x58 ..\obj\snakelib.o
+                0x08000d18                MathPower
  .text.PCD8544_InitIO
-                0x08000d58       0x78 ..\obj\tm_stm32f4_pcd8544.o
-                0x08000d58                PCD8544_InitIO
+                0x08000d70       0x78 ..\obj\tm_stm32f4_pcd8544.o
+                0x08000d70                PCD8544_InitIO
  .text.PCD8544_send
-                0x08000dd0       0x38 ..\obj\tm_stm32f4_pcd8544.o
-                0x08000dd0                PCD8544_send
+                0x08000de8       0x38 ..\obj\tm_stm32f4_pcd8544.o
+                0x08000de8                PCD8544_send
  .text.PCD8544_Pin
-                0x08000e08       0x60 ..\obj\tm_stm32f4_pcd8544.o
-                0x08000e08                PCD8544_Pin
+                0x08000e20       0x60 ..\obj\tm_stm32f4_pcd8544.o
+                0x08000e20                PCD8544_Pin
  .text.PCD8544_Delay
-                0x08000e68       0x28 ..\obj\tm_stm32f4_pcd8544.o
-                0x08000e68                PCD8544_Delay
+                0x08000e80       0x28 ..\obj\tm_stm32f4_pcd8544.o
+                0x08000e80                PCD8544_Delay
  .text.PCD8544_Init
-                0x08000e90       0x78 ..\obj\tm_stm32f4_pcd8544.o
-                0x08000e90                PCD8544_Init
+                0x08000ea8       0x78 ..\obj\tm_stm32f4_pcd8544.o
+                0x08000ea8                PCD8544_Init
  .text.PCD8544_Write
-                0x08000f08       0x3c ..\obj\tm_stm32f4_pcd8544.o
-                0x08000f08                PCD8544_Write
+                0x08000f20       0x3c ..\obj\tm_stm32f4_pcd8544.o
+                0x08000f20                PCD8544_Write
  .text.PCD8544_DrawPixel
-                0x08000f44       0xb8 ..\obj\tm_stm32f4_pcd8544.o
-                0x08000f44                PCD8544_DrawPixel
+                0x08000f5c       0xb8 ..\obj\tm_stm32f4_pcd8544.o
+                0x08000f5c                PCD8544_DrawPixel
  .text.PCD8544_Clear
-                0x08000ffc       0x4c ..\obj\tm_stm32f4_pcd8544.o
-                0x08000ffc                PCD8544_Clear
+                0x08001014       0x4c ..\obj\tm_stm32f4_pcd8544.o
+                0x08001014                PCD8544_Clear
  .text.PCD8544_Home
-                0x08001048       0x18 ..\obj\tm_stm32f4_pcd8544.o
-                0x08001048                PCD8544_Home
+                0x08001060       0x18 ..\obj\tm_stm32f4_pcd8544.o
+                0x08001060                PCD8544_Home
  .text.PCD8544_Refresh
-                0x08001060       0xbc ..\obj\tm_stm32f4_pcd8544.o
-                0x08001060                PCD8544_Refresh
+                0x08001078       0xbc ..\obj\tm_stm32f4_pcd8544.o
+                0x08001078                PCD8544_Refresh
  .text.PCD8544_UpdateArea
-                0x0800111c       0x68 ..\obj\tm_stm32f4_pcd8544.o
-                0x0800111c                PCD8544_UpdateArea
+                0x08001134       0x68 ..\obj\tm_stm32f4_pcd8544.o
+                0x08001134                PCD8544_UpdateArea
  .text.PCD8544_GotoXY
-                0x08001184       0x2c ..\obj\tm_stm32f4_pcd8544.o
-                0x08001184                PCD8544_GotoXY
+                0x0800119c       0x2c ..\obj\tm_stm32f4_pcd8544.o
+                0x0800119c                PCD8544_GotoXY
  .text.PCD8544_DrawLine
-                0x080011b0      0x1a0 ..\obj\tm_stm32f4_pcd8544.o
-                0x080011b0                PCD8544_DrawLine
+                0x080011c8      0x1a0 ..\obj\tm_stm32f4_pcd8544.o
+                0x080011c8                PCD8544_DrawLine
  .text.PCD8544_DrawFilledRectangle
-                0x08001350       0x34 ..\obj\tm_stm32f4_pcd8544.o
-                0x08001350                PCD8544_DrawFilledRectangle
+                0x08001368       0x34 ..\obj\tm_stm32f4_pcd8544.o
+                0x08001368                PCD8544_DrawFilledRectangle
  *(.init)
  *(.fini)
  *crtbegin.o(.ctors)
@@ -522,35 +530,35 @@ Linker script and memory map
  *(.rodata*)
  *(.eh_fram e*)
 
-.glue_7         0x08001384        0x0
+.glue_7         0x0800139c        0x0
  .glue_7        0x00000000        0x0 linker stubs
 
-.glue_7t        0x08001384        0x0
+.glue_7t        0x0800139c        0x0
  .glue_7t       0x00000000        0x0 linker stubs
 
-.vfp11_veneer   0x08001384        0x0
+.vfp11_veneer   0x0800139c        0x0
  .vfp11_veneer  0x00000000        0x0 linker stubs
 
-.v4_bx          0x08001384        0x0
+.v4_bx          0x0800139c        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
-.iplt           0x08001384        0x0
+.iplt           0x0800139c        0x0
  .iplt          0x00000000        0x0 ..\obj\startup_stm32f4xx.o
 
-.rel.dyn        0x08001384        0x0
+.rel.dyn        0x0800139c        0x0
  .rel.iplt      0x00000000        0x0 ..\obj\startup_stm32f4xx.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x08001384                __exidx_start = .
+                0x0800139c                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x08001384                __exidx_end = .
-                0x08001384                __etext = .
-                0x08001384                _sidata = __etext
+                0x0800139c                __exidx_end = .
+                0x0800139c                __etext = .
+                0x0800139c                _sidata = __etext
 
-.data           0x20000000      0x1f8 load address 0x08001384
+.data           0x20000000      0x1f8 load address 0x0800139c
                 0x20000000                __data_start__ = .
                 0x20000000                _sdata = __data_start__
  *(vtable)
@@ -576,10 +584,10 @@ Linker script and memory map
                 0x200001f8                __data_end__ = .
                 0x200001f8                _edata = __data_end__
 
-.igot.plt       0x200001f8        0x0 load address 0x0800157c
+.igot.plt       0x200001f8        0x0 load address 0x08001594
  .igot.plt      0x00000000        0x0 ..\obj\startup_stm32f4xx.o
 
-.bss            0x200001f8      0x200 load address 0x0800157c
+.bss            0x200001f8      0x200 load address 0x08001594
                 0x200001f8                . = ALIGN (0x4)
                 0x200001f8                __bss_start__ = .
                 0x200001f8                _sbss = __bss_start__
@@ -605,7 +613,7 @@ Linker script and memory map
  *(.heap*)
                 0x200003f8                __HeapLimit = .
 
-.co_stack       0x200003f8      0x800 load address 0x0800177c
+.co_stack       0x200003f8      0x800 load address 0x08001794
                 0x200003f8                . = ALIGN (0x8)
  *(.co_stack .co_stack.*)
  .co_stack      0x200003f8      0x800 ..\obj\startup_stm32f4xx.o
@@ -624,6 +632,7 @@ LOAD ..\obj\tm_stm32f4_rng.o
 LOAD ..\obj\stm32f4xx_gpio.o
 LOAD ..\obj\system_stm32f4xx.o
 LOAD ..\obj\stm32f4xx_spi.o
+LOAD ..\obj\bitmap.o
 LOAD ..\obj\tm_stm32f4_gpio.o
 LOAD ..\obj\snakelib.o
 LOAD ..\obj\tm_stm32f4_pcd8544.o
@@ -634,33 +643,33 @@ LOAD c:/program files (x86)/gnu tools arm embedded/4.8 2014q3/bin/../lib/gcc/arm
 END GROUP
 OUTPUT(STMSnake.elf elf32-littlearm)
 
-.debug_info     0x00000000     0x479c
+.debug_info     0x00000000     0x4761
  .debug_info    0x00000000       0xed ..\obj\startup_stm32f4xx.o
- .debug_info    0x000000ed      0x108 ..\obj\main.o
- .debug_info    0x000001f5      0xc4d ..\obj\stm32f4xx_rcc.o
- .debug_info    0x00000e42      0x100 ..\obj\demo.o
- .debug_info    0x00000f42      0xa3f ..\obj\tm_stm32f4_spi.o
- .debug_info    0x00001981      0x2cd ..\obj\tm_stm32f4_rng.o
- .debug_info    0x00001c4e      0x602 ..\obj\stm32f4xx_gpio.o
- .debug_info    0x00002250      0x592 ..\obj\system_stm32f4xx.o
- .debug_info    0x000027e2      0xb07 ..\obj\stm32f4xx_spi.o
- .debug_info    0x000032e9      0x6dc ..\obj\tm_stm32f4_gpio.o
- .debug_info    0x000039c5      0x2a4 ..\obj\snakelib.o
- .debug_info    0x00003c69      0xb33 ..\obj\tm_stm32f4_pcd8544.o
+ .debug_info    0x000000ed       0xcd ..\obj\main.o
+ .debug_info    0x000001ba      0xc4d ..\obj\stm32f4xx_rcc.o
+ .debug_info    0x00000e07      0x100 ..\obj\demo.o
+ .debug_info    0x00000f07      0xa3f ..\obj\tm_stm32f4_spi.o
+ .debug_info    0x00001946      0x2cd ..\obj\tm_stm32f4_rng.o
+ .debug_info    0x00001c13      0x602 ..\obj\stm32f4xx_gpio.o
+ .debug_info    0x00002215      0x592 ..\obj\system_stm32f4xx.o
+ .debug_info    0x000027a7      0xb07 ..\obj\stm32f4xx_spi.o
+ .debug_info    0x000032ae      0x6dc ..\obj\tm_stm32f4_gpio.o
+ .debug_info    0x0000398a      0x2a4 ..\obj\snakelib.o
+ .debug_info    0x00003c2e      0xb33 ..\obj\tm_stm32f4_pcd8544.o
 
-.debug_abbrev   0x00000000      0xead
+.debug_abbrev   0x00000000      0xe7f
  .debug_abbrev  0x00000000       0xb0 ..\obj\startup_stm32f4xx.o
- .debug_abbrev  0x000000b0       0xb8 ..\obj\main.o
- .debug_abbrev  0x00000168      0x1e3 ..\obj\stm32f4xx_rcc.o
- .debug_abbrev  0x0000034b       0xa4 ..\obj\demo.o
- .debug_abbrev  0x000003ef      0x1bb ..\obj\tm_stm32f4_spi.o
- .debug_abbrev  0x000005aa       0xc9 ..\obj\tm_stm32f4_rng.o
- .debug_abbrev  0x00000673      0x1a3 ..\obj\stm32f4xx_gpio.o
- .debug_abbrev  0x00000816      0x136 ..\obj\system_stm32f4xx.o
- .debug_abbrev  0x0000094c      0x167 ..\obj\stm32f4xx_spi.o
- .debug_abbrev  0x00000ab3      0x16b ..\obj\tm_stm32f4_gpio.o
- .debug_abbrev  0x00000c1e       0xde ..\obj\snakelib.o
- .debug_abbrev  0x00000cfc      0x1b1 ..\obj\tm_stm32f4_pcd8544.o
+ .debug_abbrev  0x000000b0       0x8a ..\obj\main.o
+ .debug_abbrev  0x0000013a      0x1e3 ..\obj\stm32f4xx_rcc.o
+ .debug_abbrev  0x0000031d       0xa4 ..\obj\demo.o
+ .debug_abbrev  0x000003c1      0x1bb ..\obj\tm_stm32f4_spi.o
+ .debug_abbrev  0x0000057c       0xc9 ..\obj\tm_stm32f4_rng.o
+ .debug_abbrev  0x00000645      0x1a3 ..\obj\stm32f4xx_gpio.o
+ .debug_abbrev  0x000007e8      0x136 ..\obj\system_stm32f4xx.o
+ .debug_abbrev  0x0000091e      0x167 ..\obj\stm32f4xx_spi.o
+ .debug_abbrev  0x00000a85      0x16b ..\obj\tm_stm32f4_gpio.o
+ .debug_abbrev  0x00000bf0       0xde ..\obj\snakelib.o
+ .debug_abbrev  0x00000cce      0x1b1 ..\obj\tm_stm32f4_pcd8544.o
 
 .debug_aranges  0x00000000      0x5d0
  .debug_aranges
@@ -702,28 +711,28 @@ OUTPUT(STMSnake.elf elf32-littlearm)
  .debug_ranges  0x00000418       0x48 ..\obj\snakelib.o
  .debug_ranges  0x00000460       0xb0 ..\obj\tm_stm32f4_pcd8544.o
 
-.debug_line     0x00000000     0x2be5
+.debug_line     0x00000000     0x2bde
  .debug_line    0x00000000       0xcb ..\obj\startup_stm32f4xx.o
- .debug_line    0x000000cb      0x1e4 ..\obj\main.o
- .debug_line    0x000002af      0x651 ..\obj\stm32f4xx_rcc.o
- .debug_line    0x00000900      0x267 ..\obj\demo.o
- .debug_line    0x00000b67      0x584 ..\obj\tm_stm32f4_spi.o
- .debug_line    0x000010eb      0x279 ..\obj\tm_stm32f4_rng.o
- .debug_line    0x00001364      0x3f6 ..\obj\stm32f4xx_gpio.o
- .debug_line    0x0000175a      0x24a ..\obj\system_stm32f4xx.o
- .debug_line    0x000019a4      0x509 ..\obj\stm32f4xx_spi.o
- .debug_line    0x00001ead      0x3b6 ..\obj\tm_stm32f4_gpio.o
- .debug_line    0x00002263      0x33d ..\obj\snakelib.o
- .debug_line    0x000025a0      0x645 ..\obj\tm_stm32f4_pcd8544.o
+ .debug_line    0x000000cb      0x1d9 ..\obj\main.o
+ .debug_line    0x000002a4      0x651 ..\obj\stm32f4xx_rcc.o
+ .debug_line    0x000008f5      0x269 ..\obj\demo.o
+ .debug_line    0x00000b5e      0x584 ..\obj\tm_stm32f4_spi.o
+ .debug_line    0x000010e2      0x279 ..\obj\tm_stm32f4_rng.o
+ .debug_line    0x0000135b      0x3f6 ..\obj\stm32f4xx_gpio.o
+ .debug_line    0x00001751      0x24a ..\obj\system_stm32f4xx.o
+ .debug_line    0x0000199b      0x509 ..\obj\stm32f4xx_spi.o
+ .debug_line    0x00001ea4      0x3b6 ..\obj\tm_stm32f4_gpio.o
+ .debug_line    0x0000225a      0x33f ..\obj\snakelib.o
+ .debug_line    0x00002599      0x645 ..\obj\tm_stm32f4_pcd8544.o
 
-.debug_str      0x00000000     0x1cc8
+.debug_str      0x00000000     0x1cb5
  .debug_str     0x00000000      0x15f ..\obj\startup_stm32f4xx.o
                                 0x171 (size before relaxing)
- .debug_str     0x0000015f      0x105 ..\obj\main.o
-                                0x1cf (size before relaxing)
- .debug_str     0x00000264      0x6f3 ..\obj\stm32f4xx_rcc.o
+ .debug_str     0x0000015f       0xdd ..\obj\main.o
+                                0x19e (size before relaxing)
+ .debug_str     0x0000023c      0x6fe ..\obj\stm32f4xx_rcc.o
                                 0x87a (size before relaxing)
- .debug_str     0x00000957       0x8c ..\obj\demo.o
+ .debug_str     0x0000093a       0xa9 ..\obj\demo.o
                                 0x1e5 (size before relaxing)
  .debug_str     0x000009e3      0x452 ..\obj\tm_stm32f4_spi.o
                                 0x725 (size before relaxing)
@@ -737,9 +746,9 @@ OUTPUT(STMSnake.elf elf32-littlearm)
                                 0x6b4 (size before relaxing)
  .debug_str     0x000015c8      0x1fb ..\obj\tm_stm32f4_gpio.o
                                 0x581 (size before relaxing)
- .debug_str     0x000017c3      0x127 ..\obj\snakelib.o
-                                0x275 (size before relaxing)
- .debug_str     0x000018ea      0x3de ..\obj\tm_stm32f4_pcd8544.o
+ .debug_str     0x000017c3      0x114 ..\obj\snakelib.o
+                                0x26d (size before relaxing)
+ .debug_str     0x000018d7      0x3de ..\obj\tm_stm32f4_pcd8544.o
                                 0x80c (size before relaxing)
 
 .comment        0x00000000       0x70

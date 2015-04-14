@@ -1,20 +1,21 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
    <processor signature="arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -g -nostartfiles -Map=STMSnake.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\STMSnake -TC:\CooCox\CoIDE\configuration\ProgramData\STMSnake/arm-gcc-link.ld -g">
-      <target file="STMSnake.elf" lastModified="14cb8c7659f">
-         <source file="..\obj\startup_stm32f4xx.o" lastModified="14cb88c3b52"/>
-         <source file="..\obj\main.o" lastModified="14cb8c75db4"/>
-         <source file="..\obj\stm32f4xx_rcc.o" lastModified="14cb88c463e"/>
-         <source file="..\obj\demo.o" lastModified="14cb8aa5a19"/>
-         <source file="..\obj\tm_stm32f4_spi.o" lastModified="14cb88c4b1e"/>
-         <source file="..\obj\main_menu_lib.o" lastModified="14cb8a0a26b"/>
-         <source file="..\obj\tm_stm32f4_rng.o" lastModified="14cb88c5498"/>
-         <source file="..\obj\stm32f4xx_gpio.o" lastModified="14cb88c58db"/>
-         <source file="..\obj\system_stm32f4xx.o" lastModified="14cb88c5cdb"/>
-         <source file="..\obj\stm32f4xx_spi.o" lastModified="14cb88c6144"/>
-         <source file="..\obj\tm_stm32f4_gpio.o" lastModified="14cb88c6608"/>
-         <source file="..\obj\snakelib.o" lastModified="14cb8996da3"/>
-         <source file="..\obj\tm_stm32f4_pcd8544.o" lastModified="14cb88c6ff6"/>
+      <target file="STMSnake.elf" lastModified="14cb9cbc2bb">
+         <source file="..\obj\startup_stm32f4xx.o" lastModified="14cb91c778c"/>
+         <source file="..\obj\main.o" lastModified="14cb9cbbb1c"/>
+         <source file="..\obj\stm32f4xx_rcc.o" lastModified="14cb91c85c8"/>
+         <source file="..\obj\demo.o" lastModified="14cb9c8795b"/>
+         <source file="..\obj\tm_stm32f4_spi.o" lastModified="14cb91c9096"/>
+         <source file="..\obj\main_menu_lib.o" lastModified="14cb9cb411b"/>
+         <source file="..\obj\tm_stm32f4_rng.o" lastModified="14cb91c9aeb"/>
+         <source file="..\obj\stm32f4xx_gpio.o" lastModified="14cb91ca010"/>
+         <source file="..\obj\system_stm32f4xx.o" lastModified="14cb91ca53a"/>
+         <source file="..\obj\stm32f4xx_spi.o" lastModified="14cb91cab1b"/>
+         <source file="..\obj\bitmap.o" lastModified="14cb9bd2f98"/>
+         <source file="..\obj\tm_stm32f4_gpio.o" lastModified="14cb91cb095"/>
+         <source file="..\obj\snakelib.o" lastModified="14cb9cb4513"/>
+         <source file="..\obj\tm_stm32f4_pcd8544.o" lastModified="14cb95eaf48"/>
       </target>
    </processor>
 </history>

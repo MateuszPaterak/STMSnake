@@ -4,6 +4,8 @@
 #include "main_menu_lib.h"
 #include "demo.h"
 
+
+
 void DemoRandomPikselBoxGenerator(void)
     {
     uint32_t x,y;
@@ -11,6 +13,7 @@ void DemoRandomPikselBoxGenerator(void)
     x = TM_RNG_Get() % (84/BOXDIM);
     y = TM_RNG_Get() % (48/BOXDIM);
 
+   // DrawEmptyBoxInGrid(x,y);
     DrawFilledBoxInGrid(x,y,PCD8544_Pixel_Set);
     }
 

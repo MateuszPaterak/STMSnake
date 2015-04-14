@@ -1,44 +1,47 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
    <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m4 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F407VG -DSTM32F4XX -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\STMSnake\STMSnake\wlasne_biblioteki\tm_stm32f4_rng -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\STMSnake\STMSnake\wlasne_biblioteki -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\STMSnake -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\STMSnake\STMSnake\wlasne_biblioteki\tm_stm32fspi -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\STMSnake\STMSnake\wlasne_biblioteki\tm_stm32fgpio -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\STMSnake\STMSnake\cmsis_lib -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\STMSnake\STMSnake\cmsis_boot -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\STMSnake\STMSnake\wlasne_biblioteki\tm_stm32fpcd8544 -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\STMSnake\STMSnake -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\STMSnake\STMSnake\cmsis -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\STMSnake\STMSnake\cmsis_lib\include">
-      <target file="stm32f4xx_gpio.o" lastModified="14cb88c58db">
-         <source file="..\..\..\cmsis_lib\source\stm32f4xx_gpio.c" lastModified="14cb7ad42b5"/>
+      <target file="stm32f4xx_gpio.o" lastModified="14cb91ca010">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_gpio.c" lastModified="14cb8e51bc0"/>
       </target>
-      <target file="snakelib.o" lastModified="14cb8996da3">
-         <source file="..\..\..\wlasne_biblioteki\snakelib.c" lastModified="14cb7ad42e4"/>
+      <target file="snakelib.o" lastModified="14cb9cb4513">
+         <source file="..\..\..\wlasne_biblioteki\snakelib.c" lastModified="14cb9b594f4"/>
       </target>
-      <target file="tm_stm32f4_pcd8544.o" lastModified="14cb88c6ff6">
-         <source file="..\..\..\wlasne_biblioteki\tm_stm32fpcd8544\tm_stm32f4_pcd8544.c" lastModified="14cb7ad42f3"/>
+      <target file="tm_stm32f4_pcd8544.o" lastModified="14cb95eaf48">
+         <source file="..\..\..\wlasne_biblioteki\tm_stm32fpcd8544\tm_stm32f4_pcd8544.c" lastModified="14cb95e95b5"/>
       </target>
-      <target file="system_stm32f4xx.o" lastModified="14cb88c5cdb">
-         <source file="..\..\..\cmsis_boot\system_stm32f4xx.c" lastModified="14cb7ad42a4"/>
+      <target file="system_stm32f4xx.o" lastModified="14cb91ca53a">
+         <source file="..\..\..\cmsis_boot\system_stm32f4xx.c" lastModified="14cb8e51b67"/>
       </target>
-      <target file="startup_stm32f4xx.o" lastModified="14cb88c3b52">
-         <source file="..\..\..\cmsis_boot\startup\startup_stm32f4xx.c" lastModified="14cb7ad4286"/>
+      <target file="startup_stm32f4xx.o" lastModified="14cb91c778c">
+         <source file="..\..\..\cmsis_boot\startup\startup_stm32f4xx.c" lastModified="14cb8e51b43"/>
       </target>
-      <target file="tm_stm32f4_gpio.o" lastModified="14cb88c6608">
-         <source file="..\..\..\wlasne_biblioteki\tm_stm32fgpio\tm_stm32f4_gpio.c" lastModified="14cb7ad42e7"/>
+      <target file="tm_stm32f4_gpio.o" lastModified="14cb91cb095">
+         <source file="..\..\..\wlasne_biblioteki\tm_stm32fgpio\tm_stm32f4_gpio.c" lastModified="14cb8e51c31"/>
       </target>
-      <target file="main.o" lastModified="14cb8c75db4">
-         <source file="..\..\..\main.c" lastModified="14cb8c74d2f"/>
+      <target file="main.o" lastModified="14cb9cbbb1c">
+         <source file="..\..\..\main.c" lastModified="14cb9cb3013"/>
       </target>
-      <target file="demo.o" lastModified="14cb8aa5a19">
-         <source file="..\..\..\demo.c" lastModified="14cb8aa4723"/>
+      <target file="bitmap.o" lastModified="14cb9bd2f98">
+         <source file="..\..\..\bitmap.c" lastModified="14cb9bd1cb8"/>
       </target>
-      <target file="stm32f4xx_spi.o" lastModified="14cb88c6144">
-         <source file="..\..\..\cmsis_lib\source\stm32f4xx_spi.c" lastModified="14cb7ad42b9"/>
+      <target file="stm32f4xx_spi.o" lastModified="14cb91cab1b">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_spi.c" lastModified="14cb8e51bc4"/>
       </target>
-      <target file="tm_stm32f4_spi.o" lastModified="14cb88c4b1e">
-         <source file="..\..\..\wlasne_biblioteki\tm_stm32fspi\tm_stm32f4_spi.c" lastModified="14cb7ad42f7"/>
+      <target file="demo.o" lastModified="14cb9c8795b">
+         <source file="..\..\..\demo.c" lastModified="14cb99129a6"/>
       </target>
-      <target file="main_menu_lib.o" lastModified="14cb8a0a26b">
-         <source file="..\..\..\wlasne_biblioteki\main_menu_lib.c" lastModified="14cb7ad42da"/>
+      <target file="tm_stm32f4_spi.o" lastModified="14cb91c9096">
+         <source file="..\..\..\wlasne_biblioteki\tm_stm32fspi\tm_stm32f4_spi.c" lastModified="14cb8e51c4f"/>
       </target>
-      <target file="stm32f4xx_rcc.o" lastModified="14cb88c463e">
-         <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="14cb7ad42b7"/>
+      <target file="main_menu_lib.o" lastModified="14cb9cb411b">
+         <source file="..\..\..\wlasne_biblioteki\main_menu_lib.c" lastModified="14cb9c8651b"/>
       </target>
-      <target file="tm_stm32f4_rng.o" lastModified="14cb88c5498">
-         <source file="..\..\..\wlasne_biblioteki\tm_stm32f4_rng\tm_stm32f4_rng.c" lastModified="14c76a993e4"/>
+      <target file="stm32f4xx_rcc.o" lastModified="14cb91c85c8">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="14cb8e51bc3"/>
+      </target>
+      <target file="tm_stm32f4_rng.o" lastModified="14cb91c9aeb">
+         <source file="..\..\..\wlasne_biblioteki\tm_stm32f4_rng\tm_stm32f4_rng.c" lastModified="14cb8e51c2e"/>
       </target>
    </processor>
    <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m4 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F407VG -DSTM32F4XX -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\cmsis -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\cmsis_lib\include -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\wlasne_biblioteki -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\cmsis_lib -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\Drivers -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\Drivers\pcd8544 -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\cmsis_boot -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\wlasne_biblioteki\Nokia_3310">
