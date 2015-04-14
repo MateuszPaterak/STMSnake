@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m4 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F407VG -DSTM32F4XX -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\cmsis -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\wlasne_biblioteki\tm_stm32fpcd8544 -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\cmsis_lib\include -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\wlasne_biblioteki -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\cmsis_lib -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\wlasne_biblioteki\tm_stm32fgpio -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\cmsis_boot -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\wlasne_biblioteki\tm_stm32fspi -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\wlasne_biblioteki\Nokia_3310">
+      <target file="stm32f4xx_gpio.o" lastModified="14cb01ad5ce">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_gpio.c" lastModified="14c9a0ebb08"/>
+      </target>
+      <target file="snakelib.o" lastModified="14cb4adb80d">
+         <source file="..\..\..\wlasne_biblioteki\snakelib.c" lastModified="14cb495623a"/>
+      </target>
+      <target file="tm_stm32f4_pcd8544.o" lastModified="14cb01ae46a">
+         <source file="..\..\..\wlasne_biblioteki\tm_stm32fpcd8544\tm_stm32f4_pcd8544.c" lastModified="14c9ae112a8"/>
+      </target>
+      <target file="system_stm32f4xx.o" lastModified="14cb01ad869">
+         <source file="..\..\..\cmsis_boot\system_stm32f4xx.c" lastModified="14c9a14576a"/>
+      </target>
+      <target file="startup_stm32f4xx.o" lastModified="14cb01ac7ec">
+         <source file="..\..\..\cmsis_boot\startup\startup_stm32f4xx.c" lastModified="14c9a0e2c18"/>
+      </target>
+      <target file="tm_stm32f4_gpio.o" lastModified="14cb01ade1a">
+         <source file="..\..\..\wlasne_biblioteki\tm_stm32fgpio\tm_stm32f4_gpio.c" lastModified="14c97d9f68b"/>
+      </target>
+      <target file="main.o" lastModified="14cb789d994">
+         <source file="..\..\..\main.c" lastModified="14cb7896ef9"/>
+      </target>
+      <target file="stm32f4xx_spi.o" lastModified="14cb01adb46">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_spi.c" lastModified="14c9a0edc5c"/>
+      </target>
+      <target file="tm_stm32f4_spi.o" lastModified="14cb01ad30f">
+         <source file="..\..\..\wlasne_biblioteki\tm_stm32fspi\tm_stm32f4_spi.c" lastModified="14c9b1385c5"/>
+      </target>
+      <target file="main_menu_lib.o" lastModified="14cb4b7c93f">
+         <source file="..\..\..\wlasne_biblioteki\main_menu_lib.c" lastModified="14cb4b7bea7"/>
+      </target>
+      <target file="stm32f4xx_rcc.o" lastModified="14cb01ad044">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="14c9a0e58fe"/>
+      </target>
+   </processor>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m4 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F407VG -DSTM32F4XX -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\cmsis -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\cmsis_lib\include -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\wlasne_biblioteki -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\cmsis_lib -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\Drivers -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\Drivers\pcd8544 -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\cmsis_boot -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt -ID:\dysk d\Politechnika\PP- moje do nauki\IV Semestr\PTM Projekt\Snake\wlasne_biblioteki\Nokia_3310">
+      <target file="lcd_pcd8544_lib.o" lastModified="14c9ad8cbe8">
+         <source file="..\..\..\wlasne_biblioteki\Nokia_3310\lcd_pcd8544_lib.c" lastModified="14c9ac432f9"/>
+      </target>
+   </processor>
+</history>

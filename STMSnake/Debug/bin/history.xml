@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -g -nostartfiles -Map=STMSnake.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\STMSnake -TC:\CooCox\CoIDE\configuration\ProgramData\STMSnake/arm-gcc-link.ld -g">
+      <target file="STMSnake.elf" lastModified="14cb789e1f8">
+         <source file="..\obj\startup_stm32f4xx.o" lastModified="14cb01ac7ec"/>
+         <source file="..\obj\main.o" lastModified="14cb789d994"/>
+         <source file="..\obj\stm32f4xx_rcc.o" lastModified="14cb01ad044"/>
+         <source file="..\obj\tm_stm32f4_spi.o" lastModified="14cb01ad30f"/>
+         <source file="..\obj\main_menu_lib.o" lastModified="14cb4b7c93f"/>
+         <source file="..\obj\stm32f4xx_gpio.o" lastModified="14cb01ad5ce"/>
+         <source file="..\obj\system_stm32f4xx.o" lastModified="14cb01ad869"/>
+         <source file="..\obj\stm32f4xx_spi.o" lastModified="14cb01adb46"/>
+         <source file="..\obj\tm_stm32f4_gpio.o" lastModified="14cb01ade1a"/>
+         <source file="..\obj\snakelib.o" lastModified="14cb4adb80d"/>
+         <source file="..\obj\tm_stm32f4_pcd8544.o" lastModified="14cb01ae46a"/>
+      </target>
+   </processor>
+</history>
