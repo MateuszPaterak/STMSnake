@@ -30,3 +30,16 @@
 
 # Debug files
 *.dSYM/
+
+# Other files and directories
+#*.bin
+#*.map
+#*.xml
+#*.log
+#*.coproj
+*.cogui
+*.comarker
+*.pbxproj
+*.history
+logs/
+STMSnake/
