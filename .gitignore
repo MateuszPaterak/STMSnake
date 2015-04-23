@@ -36,7 +36,7 @@
 #*.map
 #*.xml
 #*.log
-#*.coproj
+*.coproj
 *.cogui
 *.comarker
 *.pbxproj

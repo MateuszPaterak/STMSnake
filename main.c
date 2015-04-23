@@ -2,8 +2,16 @@
 #include "bitmap.h"
 #include "stm32f4xx_rng.h"
 
+
 int main(void)
 {
+    char *tab = calloc(20,sizeof(char));
+    tab[10]=6;
+    tab[11]=7;
+    tab[12]=8;
+    tab[13]=9;
+    tab[14]=10;
+
     //180MHz
     SystemInit();
 
@@ -25,10 +33,16 @@ int main(void)
 
     while (1)
 	{
-
-	DemoRandomPikselBoxGenerator();
-	PCD8544_Refresh();
-	PCD8544_Delay(1000000);
+	int i=0;
+	for(;i<20;i++)
+	    {
+	    DrawFilledBoxInGrid(i,tab[i],PCD8544_Pixel_Set);
+	    PCD8544_Refresh();
+	    PCD8544_Delay(1000000);
+	    }
+	//DemoRandomPikselBoxGenerator();
+	//PCD8544_Refresh();
+	//PCD8544_Delay(1000000);
 
 
 	}
