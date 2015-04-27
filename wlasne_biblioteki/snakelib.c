@@ -5,6 +5,8 @@
 // nie testowane wszyskie dok³adnie
 
 
+
+
 void DrawFilledBox(unsigned char x, unsigned char y, PCD8544_Pixel_t color)
     {
     PCD8544_DrawFilledRectangle(x, y, x+BOXDIMENSION-1, y+BOXDIMENSION-1, color);

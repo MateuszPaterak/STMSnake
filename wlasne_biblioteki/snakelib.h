@@ -5,8 +5,6 @@
 
 
 
-
-
 /*
     Draw filled square
     x - coordinate of left top point

@@ -16,3 +16,6 @@
 
 #include "stdlib.h"
 
+#include "stm32f4xx_exti.h"
+#include "misc.h"
+#include "stm32f4xx_syscfg.h"
