@@ -7,8 +7,11 @@ void StartSnakeGame()
     InitStateButton();
     Coordinate HeadSegment;
     Coordinate NewHeadSegment;
+    Coordinate Fruit;
+    GameState GameStatus=RunGame;
 
-    while(1)
+    Fruit=GenerateFruit();
+    while(GameStatus)
 	{
 
 	HeadSegment=GetSnakeHeadSegment();
@@ -39,13 +42,35 @@ void StartSnakeGame()
 		break;
 		}
 	    }
-	SetSnakeHeadSegment(NewHeadSegment);
-	RemoveLastTailSegment();
+	//SetSnakeHeadSegment(NewHeadSegment);
+	//RemoveLastTailSegment();
 
+	//collisions with frame or body
+	if(CheckCollisions(NewHeadSegment)==Collisions)
+	    {
+	    GameStatus=StopGame;
+	    }
+
+	//fruit
+	if(CheckFruitCollisions(NewHeadSegment,Fruit)==Collisions)
+	    {
+	    AddSnakeSegmentAtTheEnd(NewHeadSegment);
+	    Fruit=GenerateFruit();
+	    }
+	else
+	    {
+	    SetSnakeHeadSegment(NewHeadSegment);
+	    RemoveLastTailSegment();
+	    }
+
+	DrawFilledBoxInGrid(Fruit.x,Fruit.y,PCD8544_Pixel_Set);
 	DrawSnake();
+	DrawFrame();
+	PCD8544_Refresh();
 
 	SetModifyFlag(NotModify);
 	PCD8544_Delay(10000000);
-	}
+	}//end while(GameStatus)
 
+    DrawEndGameScreen();
     }

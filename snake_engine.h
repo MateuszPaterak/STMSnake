@@ -2,6 +2,7 @@
 #define _structcoordinate
 #define MAX_LENGTH_SNAKE 252
 
+
 typedef struct
     {
      unsigned char x;
@@ -11,7 +12,7 @@ typedef struct
 
 typedef struct
 {
-    Coordinate *SnakeSegments;//table with snake's segments [0]-tail [LenghtSnake-1]-head
+    Coordinate *SnakeSegments;//table with snake's segments [0]-tail [LenghtSnake-1]-head  //?reverse?
     unsigned int PlayerPoints;
     unsigned char LengthSnake;
     unsigned char SnakeSpeed;
@@ -35,6 +36,15 @@ typedef enum{
     Button_Down=3,
 }ButtonState;
 
+typedef enum{
+    Collisions=0,
+    NoCollisions=1,
+}CollisionsState;
+
+typedef enum{
+    StopGame=0,
+    RunGame=1,
+}GameState;
 #endif
 
 //StateGame struct
@@ -47,11 +57,14 @@ unsigned char GetLengthSnake(void);
 void SetPlayerPoints(unsigned int points);
 unsigned int GetPlayerPoints(void);
 void SetSnakeSpeed(unsigned char Speed);
-unsigned char GetSnakeSpeed();
+unsigned char GetSnakeSpeed(void);
 void SetSnakeHeadSegment(Coordinate Segment);
-Coordinate GetSnakeHeadSegment();
-void RemoveLastTailSegment();
-void DrawSnake();
+Coordinate GetSnakeHeadSegment(void);
+void RemoveLastTailSegment(void);
+void DrawSnake(void);
+CollisionsState CheckCollisions(Coordinate Segment);
+CollisionsState CheckFruitCollisions(Coordinate SnakeSegment, Coordinate Fruit);
+Coordinate GenerateFruit(void);
 
 //StateButton struct
 void InitStateButton(void);

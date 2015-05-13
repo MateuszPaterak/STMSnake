@@ -2,6 +2,7 @@
 #include "stdlib.h"
 #include "tm_stm32f4_pcd8544.h"
 #include "snakelib.h"
+#include "stm32f4xx_rng.h"
 
 //Coordinate SnakeSegments[252]; //or in StateGame struct with dynamic alocation memory
 StateButton 	Button;
@@ -112,8 +113,90 @@ void DrawSnake()
 	DrawFilledBoxInGrid(StateG.SnakeSegments[count].x,StateG.SnakeSegments[count].y,PCD8544_Pixel_Set);
 	count++;
 	}
-    PCD8544_Refresh();
+    //PCD8544_Refresh();
     }
+
+CollisionsState CheckCollisions(Coordinate Segment)
+    {
+    if(Segment.x>0 && Segment.x<20 && Segment.y>0 && Segment.y<11) //check collisions with a frame
+	{
+	unsigned char LengthCount =1;
+	Coordinate tmp;
+	do							//check collisions with the body of a snake
+	{
+	    tmp = GetSnakeSegment(LengthCount-1);
+	    if(tmp.x==Segment.x && tmp.y==Segment.y)
+		{
+		return Collisions;
+		}
+	    LengthCount++;
+	}while(LengthCount!=GetLengthSnake());
+	return NoCollisions;
+	}
+    else
+	{
+	return Collisions;
+	}
+    }
+
+CollisionsState CheckFruitCollisions(Coordinate SnakeSegment, Coordinate Fruit)
+    {
+    if(SnakeSegment.x ==Fruit.x && SnakeSegment.y==Fruit.y)
+	{
+	return Collisions;
+	}
+    else
+	{
+	return NoCollisions;
+	}
+    }
+
+Coordinate GenerateFruit()
+    {
+    uint32_t rng_x,rng_y;
+    unsigned char LengthCount =0;
+    Coordinate tmp;
+    Coordinate fruit;
+
+    while(RNG_GetFlagStatus(RNG_FLAG_DRDY)== RESET)
+    {
+
+    }
+    rng_x = RNG_GetRandomNumber() % ((84/BOXDIM)-2);
+
+    while(RNG_GetFlagStatus(RNG_FLAG_DRDY)== RESET)
+    {
+
+    }
+    rng_y = RNG_GetRandomNumber() % ((48/BOXDIM)-2);
+
+    /*
+    do							//compare fruit coordinate with the body of snake
+    	{
+    	    tmp = GetSnakeSegment(LengthCount);
+
+    	    if(tmp.x==rng_x && tmp.y==rng_y)
+    		{
+    		rng_x = RNG_GetRandomNumber() % ((84/BOXDIM)-2);
+    		rng_y = RNG_GetRandomNumber() % ((48/BOXDIM)-2);
+    		LengthCount =0;
+    		}
+    	    else {
+    		{
+    		LengthCount++;
+    		}
+	    }
+
+    	}while((LengthCount+1)!=GetLengthSnake());
+*/
+    DrawFilledBoxInGrid(rng_x+1,rng_y+1,PCD8544_Pixel_Set);
+
+    fruit.x=rng_x+1;
+    fruit.y=rng_y+1;
+    return(fruit);
+    }
+
+
 //End StateGame struct
 
 

@@ -4,6 +4,9 @@
 //left
 void EXTI0_IRQHandler(void)
 	{
+		int i=0;
+		for(;i<1000000;i++){}
+
 		if(EXTI_GetITStatus(EXTI_Line0) != RESET)
 		{
 		    if(GetModifyFlag()==NotModify)
@@ -19,6 +22,9 @@ void EXTI0_IRQHandler(void)
 //up
 void EXTI1_IRQHandler(void)
 	{
+	int i=0;
+	for(;i<1000000;i++){}
+
 		if(EXTI_GetITStatus(EXTI_Line1) != RESET)
 		{
 		    if(GetModifyFlag()==NotModify)
@@ -34,6 +40,9 @@ void EXTI1_IRQHandler(void)
 //right
 void EXTI2_IRQHandler(void)
 	{
+	int i=0;
+	for(;i<1000000;i++){}
+
 		if(EXTI_GetITStatus(EXTI_Line2) != RESET)
 		{
 		    if(GetModifyFlag()==NotModify)
@@ -49,6 +58,9 @@ void EXTI2_IRQHandler(void)
 //down
 void EXTI3_IRQHandler(void)
 	{
+	int i=0;
+	for(;i<1000000;i++){}
+
 		if(EXTI_GetITStatus(EXTI_Line3) != RESET)
 		{
 		    if(GetModifyFlag()==NotModify)
@@ -65,6 +77,9 @@ void EXTI3_IRQHandler(void)
 //akcept
 void EXTI4_IRQHandler(void)
 	{
+//	int i=0;
+//	for(;i<100000;i++){}
+
 		if(EXTI_GetITStatus(EXTI_Line4) != RESET)
 		{
 

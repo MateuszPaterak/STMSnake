@@ -4,13 +4,13 @@
 
 #include "button.h"
 #include "snake_game.h"
-
+#include "snake_engine.h"
 
 int main(void)
 {
     SystemInit();
 
-    RCC_AHB2PeriphClockCmd(RCC_AHB2Periph_RNG, ENABLE);
+    RCC_AHB2PeriphClockCmd(RCC_AHB2Periph_RNG, ENABLE);//rng
     RNG_Cmd(ENABLE); //switch on
 
     RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE); //button
@@ -36,6 +36,12 @@ int main(void)
 	//PCD8544_Refresh();
 	//PCD8544_Delay(1000000);
 
+	//Coordinate Fruit;
+	//Fruit=GenerateFruit();
+	//DrawFilledBoxInGrid(Fruit.x,Fruit.y,PCD8544_Pixel_Set);
+
+	//PCD8544_Refresh();
+	//PCD8544_Delay(1000000);
 
 	}
 }

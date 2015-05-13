@@ -89,3 +89,25 @@ int MathPower(int base, int power)
 	    }
     }
 
+void DrawFrame()
+    {
+    int i=0,j=1;
+    for(;i<84/BOXDIMENSION;i++) //horizontal frame
+	{
+	 DrawFilledBoxInGrid(i,0,PCD8544_Pixel_Set);
+	 DrawFilledBoxInGrid(i,(48/BOXDIM)-1,PCD8544_Pixel_Set);
+	}
+   for(;j<(48/BOXDIM)-1;j++) //vertical frame
+    {
+       DrawFilledBoxInGrid(0,j,PCD8544_Pixel_Set);
+       DrawFilledBoxInGrid((84/BOXDIM)-1,j,PCD8544_Pixel_Set);
+    }
+    }
+
+void DrawEndGameScreen()
+    {
+    PCD8544_Clear();
+    PCD8544_GotoXY(15,20);
+    PCD8544_Puts("Game Over",PCD8544_Pixel_Set,PCD8544_FontSize_5x7);
+    PCD8544_Refresh();
+    }
