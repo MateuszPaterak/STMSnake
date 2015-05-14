@@ -10,6 +10,8 @@ void StartSnakeGame()
     Coordinate Fruit;
     GameState GameStatus=RunGame;
 
+    DrawFrame();
+
     Fruit=GenerateFruit();
     while(GameStatus)
 	{
@@ -17,12 +19,6 @@ void StartSnakeGame()
 	HeadSegment=GetSnakeHeadSegment();
 	switch(GetButtonState()) 		//add collision with the wall
 	    {
-	    case Button_Left:
-		{
-		NewHeadSegment.x=HeadSegment.x-1;
-		NewHeadSegment.y=HeadSegment.y;
-		break;
-		}
 	    case Button_Up:
 		{
 		NewHeadSegment.x=HeadSegment.x;
@@ -41,9 +37,13 @@ void StartSnakeGame()
 		NewHeadSegment.y=HeadSegment.y+1;
 		break;
 		}
+	    case Button_Left:
+	    	{
+	    	NewHeadSegment.x=HeadSegment.x-1;
+	    	NewHeadSegment.y=HeadSegment.y;
+	    	break;
+	    	}
 	    }
-	//SetSnakeHeadSegment(NewHeadSegment);
-	//RemoveLastTailSegment();
 
 	//collisions with frame or body
 	if(CheckCollisions(NewHeadSegment)==Collisions)
@@ -51,11 +51,12 @@ void StartSnakeGame()
 	    GameStatus=StopGame;
 	    }
 
-	//fruit
+	//collisions with fruit
 	if(CheckFruitCollisions(NewHeadSegment,Fruit)==Collisions)
 	    {
 	    AddSnakeSegmentAtTheEnd(NewHeadSegment);
 	    Fruit=GenerateFruit();
+	    SetPlayerPoints(GetPlayerPoints()+3);//add points for eating fruit
 	    }
 	else
 	    {
@@ -63,13 +64,14 @@ void StartSnakeGame()
 	    RemoveLastTailSegment();
 	    }
 
-	DrawFilledBoxInGrid(Fruit.x,Fruit.y,PCD8544_Pixel_Set);
-	DrawSnake();
-	DrawFrame();
+	ClearWindow();
+	DrawSnake(); //attention-clear operation on the top
+	DrawEmptyBoxInGrid(Fruit.x,Fruit.y);
+	//DrawFrame();
 	PCD8544_Refresh();
 
 	SetModifyFlag(NotModify);
-	PCD8544_Delay(10000000);
+	PCD8544_Delay(7500000);
 	}//end while(GameStatus)
 
     DrawEndGameScreen();

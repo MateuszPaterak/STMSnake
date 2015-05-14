@@ -1,29 +1,27 @@
 #include "include.h"
 #include "snake_engine.h"
-
-//left
+/*
+//akcept
 void EXTI0_IRQHandler(void)
 	{
-		int i=0;
-		for(;i<1000000;i++){}
+//	int i=0;
+//	for(;i<10000;i++){}
 
 		if(EXTI_GetITStatus(EXTI_Line0) != RESET)
 		{
-		    if(GetModifyFlag()==NotModify)
-			{
-			SetButtonState(Button_Left);
-			SetModifyFlag(Modify);
-			}
+
+
 
 		    EXTI_ClearITPendingBit(EXTI_Line0);
 		}
 	}
+*/
 
 //up
 void EXTI1_IRQHandler(void)
 	{
 	int i=0;
-	for(;i<1000000;i++){}
+	for(;i<10000;i++){}
 
 		if(EXTI_GetITStatus(EXTI_Line1) != RESET)
 		{
@@ -41,7 +39,7 @@ void EXTI1_IRQHandler(void)
 void EXTI2_IRQHandler(void)
 	{
 	int i=0;
-	for(;i<1000000;i++){}
+	for(;i<10000;i++){}
 
 		if(EXTI_GetITStatus(EXTI_Line2) != RESET)
 		{
@@ -59,7 +57,7 @@ void EXTI2_IRQHandler(void)
 void EXTI3_IRQHandler(void)
 	{
 	int i=0;
-	for(;i<1000000;i++){}
+	for(;i<10000;i++){}
 
 		if(EXTI_GetITStatus(EXTI_Line3) != RESET)
 		{
@@ -69,23 +67,23 @@ void EXTI3_IRQHandler(void)
 		    	SetModifyFlag(Modify);
 		    	}
 
-
 		    EXTI_ClearITPendingBit(EXTI_Line3);
 		}
 	}
-
-//akcept
+//left
 void EXTI4_IRQHandler(void)
 	{
-//	int i=0;
-//	for(;i<100000;i++){}
+		int i=0;
+		for(;i<10000;i++){}
 
 		if(EXTI_GetITStatus(EXTI_Line4) != RESET)
 		{
-
-
+		    if(GetModifyFlag()==NotModify)
+			{
+			SetButtonState(Button_Left);
+			SetModifyFlag(Modify);
+			}
 
 		    EXTI_ClearITPendingBit(EXTI_Line4);
 		}
 	}
-

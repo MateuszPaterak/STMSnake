@@ -66,5 +66,6 @@ void _HelpDrawBitMap(int i, int j, unsigned char *bitmap);
  */
 int MathPower(int base, int power);
 
+void ClearWindow(void);
 void DrawFrame(void);
 void DrawEndGameScreen(void);

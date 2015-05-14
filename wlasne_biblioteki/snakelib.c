@@ -1,8 +1,12 @@
 #include "snakelib.h"
+#include "snake_engine.h"
 #include "include.h"
+#include "stdio.h"
 
 //?do poprawki wype³nianie boxami - wspó³rzêdne liczone s¹ od 0, dlatego druga para x,y musi byæ -1
-// nie testowane wszyskie dok³adnie
+// nie testowane wszyskie dok³adni
+//EOMessage
+//--------------------------------
 
 
 
@@ -20,6 +24,7 @@ void DrawEmptyBox(unsigned char x, unsigned char y)
     }
 
 //Grid - siatka
+//Filled- white or black!
 void DrawFilledBoxInGrid(unsigned char xg, unsigned char yg, PCD8544_Pixel_t color) //ok
     {
     PCD8544_DrawFilledRectangle(xg*BOXDIM, yg*BOXDIM, xg*BOXDIM+BOXDIM-1, yg*BOXDIM+BOXDIM-1, color);
@@ -89,6 +94,12 @@ int MathPower(int base, int power)
 	    }
     }
 
+//Widnows inside the frame
+void ClearWindow()
+    {
+    PCD8544_DrawFilledRectangle(BOXDIM,BOXDIM,84-BOXDIM-1,48-BOXDIM-1,PCD8544_Pixel_Clear);
+    }
+
 void DrawFrame()
     {
     int i=0,j=1;
@@ -106,8 +117,15 @@ void DrawFrame()
 
 void DrawEndGameScreen()
     {
+    char str[15];
+    sprintf(str, "%d",GetPlayerPoints());
+
     PCD8544_Clear();
-    PCD8544_GotoXY(15,20);
+    PCD8544_GotoXY(15,12);
     PCD8544_Puts("Game Over",PCD8544_Pixel_Set,PCD8544_FontSize_5x7);
+    PCD8544_GotoXY(10,20);
+    PCD8544_Puts("Your points:",PCD8544_Pixel_Set,PCD8544_FontSize_5x7);
+    PCD8544_GotoXY(34,28);
+    PCD8544_Puts(str,PCD8544_Pixel_Set,PCD8544_FontSize_5x7);
     PCD8544_Refresh();
     }

@@ -105,7 +105,7 @@ void RemoveLastTailSegment()
 
 void DrawSnake()
     {
-    PCD8544_Clear();
+    //PCD8544_Clear();
 
     unsigned char count=0;
     while(count<StateG.LengthSnake)
@@ -158,28 +158,29 @@ Coordinate GenerateFruit()
     Coordinate tmp;
     Coordinate fruit;
 
-    while(RNG_GetFlagStatus(RNG_FLAG_DRDY)== RESET)
-    {
-
-    }
+    while(RNG_GetFlagStatus(RNG_FLAG_DRDY)== RESET)   {}
     rng_x = RNG_GetRandomNumber() % ((84/BOXDIM)-2);
+    rng_x++; //frame :)
 
-    while(RNG_GetFlagStatus(RNG_FLAG_DRDY)== RESET)
-    {
-
-    }
+    while(RNG_GetFlagStatus(RNG_FLAG_DRDY)== RESET)   {}
     rng_y = RNG_GetRandomNumber() % ((48/BOXDIM)-2);
+    rng_y++;
 
-    /*
     do							//compare fruit coordinate with the body of snake
     	{
     	    tmp = GetSnakeSegment(LengthCount);
 
     	    if(tmp.x==rng_x && tmp.y==rng_y)
     		{
+    		while(RNG_GetFlagStatus(RNG_FLAG_DRDY)== RESET)    {}
     		rng_x = RNG_GetRandomNumber() % ((84/BOXDIM)-2);
+    		rng_x++;
+
+    		while(RNG_GetFlagStatus(RNG_FLAG_DRDY)== RESET)   {}
     		rng_y = RNG_GetRandomNumber() % ((48/BOXDIM)-2);
-    		LengthCount =0;
+    		rng_y++;
+
+    		LengthCount = 0;
     		}
     	    else {
     		{
@@ -187,12 +188,12 @@ Coordinate GenerateFruit()
     		}
 	    }
 
-    	}while((LengthCount+1)!=GetLengthSnake());
-*/
-    DrawFilledBoxInGrid(rng_x+1,rng_y+1,PCD8544_Pixel_Set);
+    	}while((LengthCount+1)!=GetLengthSnake()); //to check
 
-    fruit.x=rng_x+1;
-    fruit.y=rng_y+1;
+    DrawFilledBoxInGrid(rng_x,rng_y,PCD8544_Pixel_Set);
+
+    fruit.x=rng_x;
+    fruit.y=rng_y;
     return(fruit);
     }
 

@@ -14,11 +14,11 @@ int main(void)
     RNG_Cmd(ENABLE); //switch on
 
     RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE); //button
-    InitEXTIButtonPA0();//left
+    //InitEXTIButtonPA0();//akcept
     InitEXTIButtonPA1();//up
     InitEXTIButtonPA2();//right
     InitEXTIButtonPA3();//down
-    InitEXTIButtonPA4();//akcept
+    InitEXTIButtonPA4();//left
     PCD8544_Init(0x38); 				//Initialize LCD with 0x38 software contrast
 
 

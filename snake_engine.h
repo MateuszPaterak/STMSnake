@@ -26,7 +26,7 @@ typedef struct
 
 typedef enum{
     NotModify=0,
-    Modify = !NotModify
+    Modify = 1 //!NotModify
 }ModifyFlagStatus;
 
 typedef enum{
