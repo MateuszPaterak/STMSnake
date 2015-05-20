@@ -9,6 +9,14 @@ void TIM2_IRQHandler()
 	TIM_Cmd(TIM2, DISABLE);                             //wylaczenie licznika
 	TIM_ITConfig(TIM2, TIM_IT_Update, DISABLE);         //wylaczenie przerwania
 
+	if (GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_0))
+	    {
+	    if(GetModifyFlag()==NotModify)
+	    	{
+	    	SetButtonState(Button_Akcept);
+	    	SetModifyFlag(Modify);
+	    	}
+	    }
 	if (GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_1))
 	    {
 	    if(GetModifyFlag()==NotModify)
@@ -47,19 +55,20 @@ void TIM2_IRQHandler()
 	 }//TIM_GetItStatus
     }//handler
 
-/*
+
 //akcept
 void EXTI0_IRQHandler(void)
 	{
 		if(EXTI_GetITStatus(EXTI_Line0) != RESET)
 		{
-
-
+		    TIM_SetCounter(TIM2, 0);            //zerowanie licznika
+		    TIM_Cmd(TIM2, ENABLE);              //wlaczenie licznika
+		    TIM_ITConfig(TIM2, TIM_IT_Update, ENABLE);//wlaczenie przerwania
 
 		    EXTI_ClearITPendingBit(EXTI_Line0);
 		}
 	}
-*/
+
 
 //up
 void EXTI1_IRQHandler(void)

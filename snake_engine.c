@@ -197,7 +197,22 @@ Coordinate GenerateFruit()
     return(fruit);
     }
 
-
+char RunPause(void)
+    {
+	while(1)
+	    {
+	    if(GetModifyFlag()==Modify)
+		{
+		if(GetButtonState()==Button_Akcept)
+		    {
+		    SetModifyFlag(NotModify);
+		    SetButtonState(Button_None);
+		    return 0;
+		    }
+		SetModifyFlag(NotModify);
+		}
+	    }
+    }
 //End StateGame struct
 
 
@@ -205,9 +220,14 @@ Coordinate GenerateFruit()
 /*
  * StateButton struct
  */
-void InitStateButton(void)
+void InitStateButton(void) //set name to "SetInitStateButton"
     {
     Button.Button=Button_Right;
+    Button.ModifyFlag=NotModify;
+    }
+void InitStateButton2(ButtonState BuSt) //set name to "SetStateButton"
+    {
+    Button.Button=BuSt;
     Button.ModifyFlag=NotModify;
     }
 /*
@@ -216,6 +236,7 @@ void InitStateButton(void)
  *	-Button_Up
  *	-Button_Right
  *	-Button_Down
+ *	-Button_Akcept
  */
 void SetButtonState(ButtonState But)
     {

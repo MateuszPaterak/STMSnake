@@ -6,6 +6,7 @@
 #include "snake_game.h"
 #include "snake_engine.h"
 #include "TimerConfig.h"
+#include "main_menu_lib.h"
 
 int main(void)
 {
@@ -16,7 +17,7 @@ int main(void)
 
     RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE); //button
 
-    //InitEXTIButtonPA0();//akcept
+    InitEXTIButtonPA0();//akcept
     InitEXTIButtonPA1();//up
     InitEXTIButtonPA2();//right
     InitEXTIButtonPA3();//down
@@ -33,7 +34,9 @@ int main(void)
     PCD8544_Delay(10000000);
     PCD8544_Clear();
 
-    StartSnakeGame();
+    //StartSnakeGame();
+    MainMenu();
+
 
     while (1)
 	{

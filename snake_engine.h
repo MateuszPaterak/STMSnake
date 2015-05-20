@@ -30,10 +30,12 @@ typedef enum{
 }ModifyFlagStatus;
 
 typedef enum{
-    Button_Left=0,
-    Button_Up=1,
-    Button_Right=2,
-    Button_Down=3,
+    Button_None=0,
+    Button_Left=1,
+    Button_Up=2,
+    Button_Right=3,
+    Button_Down=4,
+    Button_Akcept=5,
 }ButtonState;
 
 typedef enum{
@@ -44,7 +46,7 @@ typedef enum{
 typedef enum{
     StopGame=0,
     RunGame=1,
-}GameState;
+}GameStatus;
 #endif
 
 //StateGame struct
@@ -65,9 +67,11 @@ void DrawSnake(void);
 CollisionsState CheckCollisions(Coordinate Segment);
 CollisionsState CheckFruitCollisions(Coordinate SnakeSegment, Coordinate Fruit);
 Coordinate GenerateFruit(void);
+char RunPause(void);
 
 //StateButton struct
 void InitStateButton(void);
+void InitStateButton2(ButtonState);
 void SetButtonState(ButtonState But);
 ButtonState GetButtonState(void);
 void SetModifyFlag(ModifyFlagStatus Flag);

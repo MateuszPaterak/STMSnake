@@ -3,14 +3,6 @@
 #include "include.h"
 #include "stdio.h"
 
-//?do poprawki wype³nianie boxami - wspó³rzêdne liczone s¹ od 0, dlatego druga para x,y musi byæ -1
-// nie testowane wszyskie dok³adni
-//EOMessage
-//--------------------------------
-
-
-
-
 void DrawFilledBox(unsigned char x, unsigned char y, PCD8544_Pixel_t color)
     {
     PCD8544_DrawFilledRectangle(x, y, x+BOXDIMENSION-1, y+BOXDIMENSION-1, color);

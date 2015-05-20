@@ -1,5 +1,18 @@
+#ifndef __main_menu_lib_h
+#define __main_menu_lib_h
 
 #include "tm_stm32f4_pcd8544.h"
+
+#define NumberOfPosition 4
+
+typedef struct
+{
+    unsigned char PositionNumber;	//value from 1 to NumberOfPosition
+//    unsigned char NumberOfPosition;
+}MainMenuStatus;
+
+
+void MainMenu(void);
 
 /*
  *  Main Menu Snake's game
@@ -12,5 +25,10 @@ void DrawGameMainMenu();
      - PCD8544_Pixel_Clear
      - PCD8544_Pixel_Set
  */
-void DrawMenuSelectionFrame7x5(unsigned char top_y, PCD8544_Pixel_t color);
+void DrawMenuSelectionFrame7x5(unsigned char NumOfPosition, PCD8544_Pixel_t color);
 
+void SetMenuPositions(unsigned char Number);
+unsigned char GetMenuPositions(void);
+void SelectAction(unsigned char NumberOfAction);
+
+#endif //__main_menu_lib_h

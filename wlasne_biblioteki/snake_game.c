@@ -8,15 +8,30 @@ void StartSnakeGame()
     Coordinate HeadSegment;
     Coordinate NewHeadSegment;
     Coordinate Fruit;
-    GameState GameStatus=RunGame;
+    GameStatus GameSt=RunGame;
+    ButtonState ButtonStatusBeforePause;
 
     DrawFrame();
 
     Fruit=GenerateFruit();
-    while(GameStatus)
+    while(GameSt)
 	{
+	if(GetButtonState()==Button_Akcept)
+	{
+		SetModifyFlag(NotModify);
+		SetButtonState(Button_None);
+		RunPause();
+		SetButtonState(ButtonStatusBeforePause);
+		continue;
+	}
 
 	HeadSegment=GetSnakeHeadSegment();
+
+	if((GetButtonState()!=Button_None) || (GetButtonState()!=Button_Akcept)) //to safe button status before Pause, to know where are going after pause
+	    {
+	    ButtonStatusBeforePause=GetButtonState();
+	    }
+
 	switch(GetButtonState()) 		//add collision with the wall
 	    {
 	    case Button_Up:
@@ -43,12 +58,25 @@ void StartSnakeGame()
 	    	NewHeadSegment.y=HeadSegment.y;
 	    	break;
 	    	}
+/*	    case Button_Akcept:
+		{
+		SetModifyFlag(NotModify);
+		SetButtonState(Button_None);
+		RunPause();
+		SetButtonState(ButtonStatusBeforePause);
+		break;
+		}*/
+	    default:
+		{
+		break;
+		}
 	    }
+
 
 	//collisions with frame or body
 	if(CheckCollisions(NewHeadSegment)==Collisions)
 	    {
-	    GameStatus=StopGame;
+	    GameSt=StopGame;
 	    }
 
 	//collisions with fruit
@@ -71,7 +99,7 @@ void StartSnakeGame()
 	PCD8544_Refresh();
 
 	SetModifyFlag(NotModify);
-	PCD8544_Delay(7500000);
+	PCD8544_Delay(6000000);
 	}//end while(GameStatus)
 
     DrawEndGameScreen();
