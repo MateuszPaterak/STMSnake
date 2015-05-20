@@ -25,12 +25,14 @@ void DemoRandomPikselBoxGenerator(void)
 void DemoRandomPikselBoxGenerator(void)
     {
     uint32_t x,y;
-
+    while(RNG_GetFlagStatus(RNG_FLAG_DRDY)== RESET)    {}
     x = RNG_GetRandomNumber() % (84/BOXDIM);
+    while(RNG_GetFlagStatus(RNG_FLAG_DRDY)== RESET)    {}
     y = RNG_GetRandomNumber() % (48/BOXDIM);
 
    // DrawEmptyBoxInGrid(x,y);
     DrawFilledBoxInGrid(x,y,PCD8544_Pixel_Set);
+    PCD8544_Refresh();
     }
 
 void DemoDrawMenu(void)

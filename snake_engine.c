@@ -188,7 +188,7 @@ Coordinate GenerateFruit()
     		}
 	    }
 
-    	}while((LengthCount+1)!=GetLengthSnake()); //to check
+    	}while(LengthCount<=(GetLengthSnake()-1)); //to check
 
     DrawFilledBoxInGrid(rng_x,rng_y,PCD8544_Pixel_Set);
 

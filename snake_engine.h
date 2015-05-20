@@ -1,6 +1,6 @@
 #ifndef _structcoordinate
 #define _structcoordinate
-#define MAX_LENGTH_SNAKE 252
+#define MAX_LENGTH_SNAKE ((84/BOXDIM-2)*(48/BOXDIM-2)) //or 252 (21*12)
 
 
 typedef struct
