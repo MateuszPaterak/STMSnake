@@ -37,6 +37,7 @@ void DrawFilledBoxInGrid(unsigned char x, unsigned char y, PCD8544_Pixel_t color
  */
 void DrawEmptyBoxInGrid(unsigned char x, unsigned char y);
 
+void DrawCrossInGrid(unsigned char xg, unsigned char yg, PCD8544_Pixel_t color);
 
 /*
  * Draw bit map where bitmap is char[504],
@@ -69,3 +70,5 @@ int MathPower(int base, int power);
 void ClearWindow(void);
 void DrawFrame(void);
 void DrawEndGameScreen(void);
+void TimerLoop(void);
+

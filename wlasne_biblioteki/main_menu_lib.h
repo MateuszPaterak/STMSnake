@@ -3,8 +3,6 @@
 
 #include "tm_stm32f4_pcd8544.h"
 
-#define NumberOfPosition 4
-
 typedef struct
 {
     unsigned char PositionNumber;	//value from 1 to NumberOfPosition
@@ -27,6 +25,9 @@ void DrawGameMainMenu();
  */
 void DrawMenuSelectionFrame7x5(unsigned char NumOfPosition, PCD8544_Pixel_t color);
 
+void SpeedMenu(void);
+void DrawSpeedMenu(void);
+void SetSpeedGame(unsigned char Position);
 void SetMenuPositions(unsigned char Number);
 unsigned char GetMenuPositions(void);
 void SelectAction(unsigned char NumberOfAction);

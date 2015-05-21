@@ -47,10 +47,11 @@ typedef enum{
     StopGame=0,
     RunGame=1,
 }GameStatus;
-#endif
+
 
 //StateGame struct
 void InitStateGame(void);
+void DeInitStateGame(void);
 void AddSnakeSegmentAtTheEnd(Coordinate Segment);
 void SetSnakeSegment(unsigned int Index,Coordinate Segment);
 Coordinate GetSnakeSegment(unsigned int Index);
@@ -66,6 +67,8 @@ void RemoveLastTailSegment(void);
 void DrawSnake(void);
 CollisionsState CheckCollisions(Coordinate Segment);
 CollisionsState CheckFruitCollisions(Coordinate SnakeSegment, Coordinate Fruit);
+Coordinate CheckAndCorretReversedDirection(Coordinate NewHeadSegment);
+Coordinate CheckAndCorretReversedDirection2(Coordinate NewHeadSegment);
 Coordinate GenerateFruit(void);
 char RunPause(void);
 
@@ -76,3 +79,5 @@ void SetButtonState(ButtonState But);
 ButtonState GetButtonState(void);
 void SetModifyFlag(ModifyFlagStatus Flag);
 ModifyFlagStatus GetModifyFlag(void);
+
+#endif

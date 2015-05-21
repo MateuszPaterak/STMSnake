@@ -29,7 +29,10 @@ void InitStateGame(void)
     AddSnakeSegmentAtTheEnd(S2);
     AddSnakeSegmentAtTheEnd(S3);
     }
-
+void DeInitStateGame(void)
+    {
+    free(StateG.SnakeSegments);
+    }
 void AddSnakeSegmentAtTheEnd(Coordinate Segment)
     {
     if(StateG.LengthSnake!=MAX_LENGTH_SNAKE)
@@ -108,9 +111,15 @@ void DrawSnake()
     //PCD8544_Clear();
 
     unsigned char count=0;
-    while(count<StateG.LengthSnake)
+
+    while(count<(StateG.LengthSnake-1))
 	{
 	DrawFilledBoxInGrid(StateG.SnakeSegments[count].x,StateG.SnakeSegments[count].y,PCD8544_Pixel_Set);
+	count++;
+	}
+    if(count==(StateG.LengthSnake-1))					//special view of snake head (head is at the end of the table)
+	{
+	DrawEmptyBoxInGrid(StateG.SnakeSegments[count].x,StateG.SnakeSegments[count].y);
 	count++;
 	}
     //PCD8544_Refresh();
@@ -124,7 +133,8 @@ CollisionsState CheckCollisions(Coordinate Segment)
 	Coordinate tmp;
 	do							//check collisions with the body of a snake
 	{
-	    tmp = GetSnakeSegment(LengthCount-1);
+	    //tmp = GetSnakeSegment(LengthCount-1);
+	    tmp = GetSnakeSegment(LengthCount);			//first moves the tail, then head :)
 	    if(tmp.x==Segment.x && tmp.y==Segment.y)
 		{
 		return Collisions;
@@ -150,6 +160,100 @@ CollisionsState CheckFruitCollisions(Coordinate SnakeSegment, Coordinate Fruit)
 	return NoCollisions;
 	}
     }
+
+//check collisions with a second segment(detect reversed direction)
+Coordinate CheckAndCorretReversedDirection(Coordinate NewHeadSegment)
+    {
+    Coordinate HeadSegment = GetSnakeHeadSegment();
+    Coordinate SecondSemgnet = GetSnakeSegment(GetLengthSnake()-2);
+    Coordinate TmpSegment;
+
+    if((SecondSemgnet.x==NewHeadSegment.x) && (SecondSemgnet.y==NewHeadSegment.y))
+	{
+	if(NewHeadSegment.x == HeadSegment.x)//up-down
+	    {
+	    TmpSegment.x=HeadSegment.x;
+	    if(HeadSegment.y-NewHeadSegment.y==1) //calculate new y coordination
+		{
+		TmpSegment.y=HeadSegment.y+1;
+		}
+	    else
+		{
+		TmpSegment.y=HeadSegment.y-1;
+		}
+	    return TmpSegment;
+	    }//end if2
+	else//left-right
+	    {
+	    TmpSegment.y=HeadSegment.y;
+	    if(HeadSegment.x-NewHeadSegment.x==1) //calculate new y coordination
+		{
+		TmpSegment.x=HeadSegment.x+1;
+		}
+	    else
+		{
+		TmpSegment.x=HeadSegment.x-1;
+		}
+	    return TmpSegment;
+	    }//end else2
+	}//end if1
+    else
+	{
+	return NewHeadSegment;
+	}//else if1
+    }//CheckReversedDirection
+
+//Second version
+Coordinate CheckAndCorretReversedDirection2(Coordinate NewHeadSegment)
+    {
+    Coordinate HeadSegment = GetSnakeHeadSegment();
+    Coordinate SecondSemgnet = GetSnakeSegment(GetLengthSnake()-2);
+    Coordinate TmpSegment;
+
+    if((SecondSemgnet.x==NewHeadSegment.x) && (SecondSemgnet.y==NewHeadSegment.y))
+	{
+	switch(GetButtonState())
+	    {
+	    case Button_Up:
+		{
+		TmpSegment.x=HeadSegment.x;
+		TmpSegment.y=HeadSegment.y+1;
+		return TmpSegment;
+		break;
+		}
+	    case Button_Down:
+		{
+		TmpSegment.x=HeadSegment.x;
+		TmpSegment.y=HeadSegment.y-1;
+		return TmpSegment;
+		break;
+		}
+	    case Button_Left:
+		{
+		TmpSegment.y=HeadSegment.y;
+		TmpSegment.x=HeadSegment.x+1;
+		return TmpSegment;
+		break;
+		}
+	    case Button_Right:
+		{
+		TmpSegment.y=HeadSegment.y;
+		TmpSegment.x=HeadSegment.x-1;
+		return TmpSegment;
+		break;
+		}
+	    default:
+		{
+		return NewHeadSegment;
+		}
+	    }//switch
+	}//end if1
+    else
+	{
+	return NewHeadSegment;
+	}//else if1
+
+    }//end function
 
 Coordinate GenerateFruit()
     {
@@ -190,8 +294,6 @@ Coordinate GenerateFruit()
 
     	}while(LengthCount<=(GetLengthSnake()-1)); //to check
 
-    DrawFilledBoxInGrid(rng_x,rng_y,PCD8544_Pixel_Set);
-
     fruit.x=rng_x;
     fruit.y=rng_y;
     return(fruit);
@@ -203,12 +305,25 @@ char RunPause(void)
 	    {
 	    if(GetModifyFlag()==Modify)
 		{
-		if(GetButtonState()==Button_Akcept)
+		switch(GetButtonState())
 		    {
-		    SetModifyFlag(NotModify);
-		    SetButtonState(Button_None);
-		    return 0;
-		    }
+		    case Button_Akcept:
+		    case Button_Up:
+		    case Button_Down:
+		    case Button_Left:
+		    case Button_Right:
+			{
+			    SetModifyFlag(NotModify);
+			    SetButtonState(Button_None);
+			    return 0;
+			    break;
+			}
+		    default:
+			{
+			break;
+			}
+		    }//switch
+
 		SetModifyFlag(NotModify);
 		}
 	    }

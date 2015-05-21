@@ -1,5 +1,6 @@
 #include "include.h"
 #include "snake_engine.h"
+#include "TimerConfig.h"
 
 void StartSnakeGame()
     {
@@ -22,17 +23,15 @@ void StartSnakeGame()
 		SetButtonState(Button_None);
 		RunPause();
 		SetButtonState(ButtonStatusBeforePause);
-		continue;
+		//continue;
 	}
-
-	HeadSegment=GetSnakeHeadSegment();
-
-	if((GetButtonState()!=Button_None) || (GetButtonState()!=Button_Akcept)) //to safe button status before Pause, to know where are going after pause
+	if((GetButtonState()!=Button_None) && (GetButtonState()!=Button_Akcept)) //to safe button status before Pause, to know where are going after pause
 	    {
 	    ButtonStatusBeforePause=GetButtonState();
 	    }
 
-	switch(GetButtonState()) 		//add collision with the wall
+	HeadSegment=GetSnakeHeadSegment();
+	switch(GetButtonState())
 	    {
 	    case Button_Up:
 		{
@@ -58,19 +57,14 @@ void StartSnakeGame()
 	    	NewHeadSegment.y=HeadSegment.y;
 	    	break;
 	    	}
-/*	    case Button_Akcept:
-		{
-		SetModifyFlag(NotModify);
-		SetButtonState(Button_None);
-		RunPause();
-		SetButtonState(ButtonStatusBeforePause);
-		break;
-		}*/
 	    default:
 		{
 		break;
 		}
 	    }
+
+	//remove possibility reversed direction(with body)
+	NewHeadSegment=CheckAndCorretReversedDirection2(NewHeadSegment);
 
 
 	//collisions with frame or body
@@ -93,14 +87,15 @@ void StartSnakeGame()
 	    }
 
 	ClearWindow();
-	DrawSnake(); //attention-clear operation on the top
-	DrawEmptyBoxInGrid(Fruit.x,Fruit.y);
-	//DrawFrame();
+	DrawSnake();
+	DrawCrossInGrid(Fruit.x,Fruit.y,PCD8544_Pixel_Set);
+	//DrawEmptyBoxInGrid(Fruit.x,Fruit.y);
 	PCD8544_Refresh();
 
 	SetModifyFlag(NotModify);
-	PCD8544_Delay(6000000);
+	TimerLoop();
 	}//end while(GameStatus)
 
+    DeInitStateGame();
     DrawEndGameScreen();
     }

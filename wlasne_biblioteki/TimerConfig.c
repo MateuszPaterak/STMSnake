@@ -2,8 +2,6 @@
 
 void ConfTim2()
 {
-	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
-
 	NVIC_InitTypeDef NVIC_InitStructure;
 
 	//NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1); // -> in the button.c
@@ -30,6 +28,22 @@ void ConfTim2()
 	//TIM_Cmd(TIM2, ENABLE); //w EXTI_IRQHandler
 }
 
+void ConfTim3(unsigned int Period)
+{
+	TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure;
+	TIM_TimeBaseStructure.TIM_Period = Period-1;  		//0,5s: 999   1s: 1999  2s:3999  //co ile kroków przepe³nienie licznika
+	TIM_TimeBaseStructure.TIM_Prescaler = 42000-1;		//0,5s: 41999 1s: 41999 2s:41999 //taka wartosæ powoduje, ¿e w ci¹gu sekundy, licznik zliczy 2000 kroków
+	TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;
+	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
+	TIM_TimeBaseInit(TIM3, &TIM_TimeBaseStructure);
+
+	//TIM_ClearITPendingBit(TIM3,TIM_IT_Update);
+
+	//TIM_ClearFlag(TIM3,TIM_FLAG_Update);   //Must first clear configuration the update flag
+
+	//TIM_ITConfig(TIM3, TIM_IT_Update, ENABLE); //Enable interrupt, timer interrupt events - Events
+	//TIM_Cmd(TIM3, ENABLE);
+}
 
 void ConfTimX()
 {

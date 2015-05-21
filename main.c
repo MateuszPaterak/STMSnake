@@ -23,7 +23,12 @@ int main(void)
     InitEXTIButtonPA3();//down
     InitEXTIButtonPA4();//left
 
+    RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE); //timer
     ConfTim2();
+    //SystemCoreClockUpdate();
+    RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE); //timer
+    ConfTim3(1000); //init with 0,5s game period
+
 
     PCD8544_Init(0x38); 				//Initialize LCD with 0x38 software contrast
 

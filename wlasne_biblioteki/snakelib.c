@@ -28,6 +28,26 @@ void DrawEmptyBoxInGrid(unsigned char xg, unsigned char yg)//ok
     PCD8544_DrawFilledRectangle(xg*BOXDIM+1, yg*BOXDIM+1, xg*BOXDIM+BOXDIM -2 , yg*BOXDIM+BOXDIM -2 , PCD8544_Pixel_Clear);
     }
 
+void DrawCrossInGrid(unsigned char xg, unsigned char yg, PCD8544_Pixel_t color)
+    {
+    PCD8544_DrawFilledRectangle(xg*BOXDIM, yg*BOXDIM, xg*BOXDIM+BOXDIM-1, yg*BOXDIM+BOXDIM-1, color);
+
+	if(color==PCD8544_Pixel_Clear)
+	{
+	    PCD8544_DrawPixel(xg*BOXDIM, yg*BOXDIM,PCD8544_Pixel_Set);
+	    PCD8544_DrawPixel(xg*BOXDIM+BOXDIM-1, yg*BOXDIM+BOXDIM-1,PCD8544_Pixel_Set);
+	    PCD8544_DrawPixel(xg*BOXDIM, yg*BOXDIM+BOXDIM-1,PCD8544_Pixel_Set);
+	    PCD8544_DrawPixel(xg*BOXDIM+BOXDIM-1, yg*BOXDIM,PCD8544_Pixel_Set);
+	}
+	else
+	{
+	    PCD8544_DrawPixel(xg*BOXDIM, yg*BOXDIM,PCD8544_Pixel_Clear);
+	    PCD8544_DrawPixel(xg*BOXDIM+BOXDIM-1, yg*BOXDIM+BOXDIM-1,PCD8544_Pixel_Clear);
+	    PCD8544_DrawPixel(xg*BOXDIM, yg*BOXDIM+BOXDIM-1,PCD8544_Pixel_Clear);
+	    PCD8544_DrawPixel(xg*BOXDIM+BOXDIM-1, yg*BOXDIM,PCD8544_Pixel_Clear);
+	}
+    }
+
 void DrawBitMap(unsigned char *bitmap)
     {
     int i,j;
@@ -120,4 +140,21 @@ void DrawEndGameScreen()
     PCD8544_GotoXY(34,28);
     PCD8544_Puts(str,PCD8544_Pixel_Set,PCD8544_FontSize_5x7);
     PCD8544_Refresh();
+    }
+
+void TimerLoop()
+    {
+    TIM_Cmd(TIM3, ENABLE);
+    unsigned char flag=1;
+
+    while(flag)
+	{
+	if(TIM_GetFlagStatus(TIM3,TIM_FLAG_Update))
+	    {
+	    flag=0;
+	    TIM_ClearFlag(TIM3, TIM_FLAG_Update);
+	    }
+	}//while
+
+    TIM_Cmd(TIM3, DISABLE);
     }
