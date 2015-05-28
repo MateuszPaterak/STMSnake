@@ -8,6 +8,9 @@
 #include "TimerConfig.h"
 #include "main_menu_lib.h"
 
+//#include "tm_stm32f4_delay.h"
+#include "tm_stm32f4_fatfs.h"
+
 int main(void)
 {
     SystemInit();
@@ -27,7 +30,8 @@ int main(void)
     ConfTim2();
     //SystemCoreClockUpdate();
     RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE); //timer
-    ConfTim3(1000); //init with 0,5s game period
+
+    ConfTim3(350); //init with 0,5s game period
 
 
     PCD8544_Init(0x38); 				//Initialize LCD with 0x38 software contrast
@@ -41,6 +45,7 @@ int main(void)
 
     //StartSnakeGame();
     MainMenu();
+
 
 
     while (1)

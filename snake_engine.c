@@ -3,6 +3,7 @@
 #include "tm_stm32f4_pcd8544.h"
 #include "snakelib.h"
 #include "stm32f4xx_rng.h"
+#include "stm32f4xx_tim.h"
 
 //Coordinate SnakeSegments[252]; //or in StateGame struct with dynamic alocation memory
 StateButton 	Button;
@@ -106,24 +107,7 @@ void RemoveLastTailSegment()
 	}
     }
 
-void DrawSnake()
-    {
-    //PCD8544_Clear();
 
-    unsigned char count=0;
-
-    while(count<(StateG.LengthSnake-1))
-	{
-	DrawFilledBoxInGrid(StateG.SnakeSegments[count].x,StateG.SnakeSegments[count].y,PCD8544_Pixel_Set);
-	count++;
-	}
-    if(count==(StateG.LengthSnake-1))					//special view of snake head (head is at the end of the table)
-	{
-	DrawEmptyBoxInGrid(StateG.SnakeSegments[count].x,StateG.SnakeSegments[count].y);
-	count++;
-	}
-    //PCD8544_Refresh();
-    }
 
 CollisionsState CheckCollisions(Coordinate Segment)
     {
@@ -378,3 +362,20 @@ ModifyFlagStatus GetModifyFlag(void)
     return Button.ModifyFlag;
     }
 // End StateButton struct
+
+void TimerLoop()
+    {
+    TIM_Cmd(TIM3, ENABLE);
+    unsigned char flag=1;
+
+    while(flag)
+	{
+	if(TIM_GetFlagStatus(TIM3,TIM_FLAG_Update))
+	    {
+	    flag=0;
+	    TIM_ClearFlag(TIM3, TIM_FLAG_Update);
+	    }
+	}//while
+
+    TIM_Cmd(TIM3, DISABLE);
+    }

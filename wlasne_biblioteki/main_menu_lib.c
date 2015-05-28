@@ -204,19 +204,19 @@ void DrawSpeedMenu()
     {
     PCD8544_Clear();
     PCD8544_GotoXY(1,1);
-    PCD8544_Puts("0.10 s",PCD8544_Pixel_Set,PCD8544_FontSize_5x7);
+    PCD8544_Puts("VERY HARD",PCD8544_Pixel_Set,PCD8544_FontSize_5x7);
 
     PCD8544_GotoXY(1,1+HeightOfSelectionFrame);
-    PCD8544_Puts("0.20 s",PCD8544_Pixel_Set,PCD8544_FontSize_5x7);
+    PCD8544_Puts("HARD",PCD8544_Pixel_Set,PCD8544_FontSize_5x7);
 
     PCD8544_GotoXY(1,1+2*HeightOfSelectionFrame);
-    PCD8544_Puts("0.30 s",PCD8544_Pixel_Set,PCD8544_FontSize_5x7);
+    PCD8544_Puts("NORMAL",PCD8544_Pixel_Set,PCD8544_FontSize_5x7);
 
     PCD8544_GotoXY(1,1+3*HeightOfSelectionFrame);
-    PCD8544_Puts("0.40 s",PCD8544_Pixel_Set,PCD8544_FontSize_5x7);
+    PCD8544_Puts("EASY",PCD8544_Pixel_Set,PCD8544_FontSize_5x7);
 
     PCD8544_GotoXY(1,1+4*HeightOfSelectionFrame);
-    PCD8544_Puts("0.50 s",PCD8544_Pixel_Set,PCD8544_FontSize_5x7);
+    PCD8544_Puts("VERY EASY",PCD8544_Pixel_Set,PCD8544_FontSize_5x7);
     }
 
 void SetSpeedGame(unsigned char Position)
@@ -225,32 +225,32 @@ void SetSpeedGame(unsigned char Position)
 	{
 	case 1:
 	    {
-	    ConfTim3(200);
+	    ConfTim3(100);
 	    break;
 	    }
 	case 2:
 	    {
-	    ConfTim3(400);
+	    ConfTim3(200);
 	    break;
 	    }
 	case 3:
 	    {
-	    ConfTim3(600);
+	    ConfTim3(350);
 	    break;
 	    }
 	case 4:
 	    {
-	    ConfTim3(800);
+	    ConfTim3(550);
 	    break;
 	    }
 	case 5:
 	    {
-	    ConfTim3(1000);
+	    ConfTim3(750);
 	    break;
 	    }
 	default:
 	    {
-	    ConfTim3(1000);
+	    ConfTim3(750);
 	    break;
 	    }
 	}
@@ -260,16 +260,16 @@ void DrawGameMainMenu()
     {
     PCD8544_Clear();
     PCD8544_GotoXY(1,1);
-    PCD8544_Puts("Start gry",PCD8544_Pixel_Set,PCD8544_FontSize_5x7);
+    PCD8544_Puts("Play",PCD8544_Pixel_Set,PCD8544_FontSize_5x7);
 
     PCD8544_GotoXY(1,1+HeightOfSelectionFrame);
-    PCD8544_Puts("Poziom trundos",PCD8544_Pixel_Set,PCD8544_FontSize_5x7);
+    PCD8544_Puts("Difficulty",PCD8544_Pixel_Set,PCD8544_FontSize_5x7);
 
     PCD8544_GotoXY(1,1+2*HeightOfSelectionFrame);
-    PCD8544_Puts("Najwyz. wyniki",PCD8544_Pixel_Set,PCD8544_FontSize_5x7);
+    PCD8544_Puts("High scores",PCD8544_Pixel_Set,PCD8544_FontSize_5x7);
 
     PCD8544_GotoXY(1,1+3*HeightOfSelectionFrame);
-    PCD8544_Puts("Resetuj wyniki",PCD8544_Pixel_Set,PCD8544_FontSize_5x7);
+    PCD8544_Puts("Reset scores",PCD8544_Pixel_Set,PCD8544_FontSize_5x7);
     }
 
 void DrawMenuSelectionFrame7x5(unsigned char NumOfPosition, PCD8544_Pixel_t color)

@@ -2,6 +2,9 @@
 #include "snake_engine.h"
 #include "include.h"
 #include "stdio.h"
+#include "snake_engine.h"
+
+extern StateGame StateG;
 
 void DrawFilledBox(unsigned char x, unsigned char y, PCD8544_Pixel_t color)
     {
@@ -142,19 +145,21 @@ void DrawEndGameScreen()
     PCD8544_Refresh();
     }
 
-void TimerLoop()
+void DrawSnake()
     {
-    TIM_Cmd(TIM3, ENABLE);
-    unsigned char flag=1;
+    //PCD8544_Clear();
 
-    while(flag)
+    unsigned char count=0;
+
+    while(count<(StateG.LengthSnake-1))
 	{
-	if(TIM_GetFlagStatus(TIM3,TIM_FLAG_Update))
-	    {
-	    flag=0;
-	    TIM_ClearFlag(TIM3, TIM_FLAG_Update);
-	    }
-	}//while
-
-    TIM_Cmd(TIM3, DISABLE);
+	DrawFilledBoxInGrid(StateG.SnakeSegments[count].x,StateG.SnakeSegments[count].y,PCD8544_Pixel_Set);
+	count++;
+	}
+    if(count==(StateG.LengthSnake-1))				//special view of snake head (head is at the end of the table)
+	{
+	DrawEmptyBoxInGrid(StateG.SnakeSegments[count].x,StateG.SnakeSegments[count].y);
+	count++;
+	}
+    //PCD8544_Refresh();
     }

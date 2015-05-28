@@ -70,5 +70,5 @@ int MathPower(int base, int power);
 void ClearWindow(void);
 void DrawFrame(void);
 void DrawEndGameScreen(void);
-void TimerLoop(void);
+void DrawSnake(void);
 

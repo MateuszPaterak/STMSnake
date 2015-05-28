@@ -12,7 +12,7 @@ typedef struct
 
 typedef struct
 {
-    Coordinate *SnakeSegments;//table with snake's segments [0]-tail [LenghtSnake-1]-head  //?reverse?
+    Coordinate *SnakeSegments;//table with snake's segments [0]-tail [LenghtSnake-1]-head
     unsigned int PlayerPoints;
     unsigned char LengthSnake;
     unsigned char SnakeSpeed;
@@ -64,13 +64,12 @@ unsigned char GetSnakeSpeed(void);
 void SetSnakeHeadSegment(Coordinate Segment);
 Coordinate GetSnakeHeadSegment(void);
 void RemoveLastTailSegment(void);
-void DrawSnake(void);
+
 CollisionsState CheckCollisions(Coordinate Segment);
 CollisionsState CheckFruitCollisions(Coordinate SnakeSegment, Coordinate Fruit);
 Coordinate CheckAndCorretReversedDirection(Coordinate NewHeadSegment);
 Coordinate CheckAndCorretReversedDirection2(Coordinate NewHeadSegment);
 Coordinate GenerateFruit(void);
-char RunPause(void);
 
 //StateButton struct
 void InitStateButton(void);
@@ -79,5 +78,9 @@ void SetButtonState(ButtonState But);
 ButtonState GetButtonState(void);
 void SetModifyFlag(ModifyFlagStatus Flag);
 ModifyFlagStatus GetModifyFlag(void);
+
+//other
+char RunPause(void);
+void TimerLoop(void);
 
 #endif
