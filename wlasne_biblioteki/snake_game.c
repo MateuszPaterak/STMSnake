@@ -5,7 +5,6 @@
 void StartSnakeGame()
     {
     InitStateGame();
-    InitStateButton();
     Coordinate HeadSegment;
     Coordinate NewHeadSegment;
     Coordinate Fruit;
@@ -15,9 +14,12 @@ void StartSnakeGame()
     DrawFrame();
 
     Fruit=GenerateFruit();
+    InitStateButton();
+
     while(GameSt)
 	{
-	if(GetButtonState()==Button_Akcept)
+
+	if(GetButtonState()==Button_Akcept) //go to pause in game
 	{
 		SetModifyFlag(NotModify);
 		SetButtonState(Button_None);
@@ -78,7 +80,7 @@ void StartSnakeGame()
 	    {
 	    AddSnakeSegmentAtTheEnd(NewHeadSegment);
 	    Fruit=GenerateFruit();
-	    SetPlayerPoints(GetPlayerPoints()+3);//add points for eating fruit
+	    SetPlayerPoints(GetPlayerPoints()+1);//add points for eating fruit
 	    }
 	else
 	    {
@@ -89,7 +91,6 @@ void StartSnakeGame()
 	ClearWindow();
 	DrawSnake();
 	DrawCrossInGrid(Fruit.x,Fruit.y,PCD8544_Pixel_Set);
-	//DrawEmptyBoxInGrid(Fruit.x,Fruit.y);
 	PCD8544_Refresh();
 
 	SetModifyFlag(NotModify);
@@ -97,5 +98,9 @@ void StartSnakeGame()
 	}//end while(GameStatus)
 
     DeInitStateGame();
+
     DrawEndGameScreen();
+    WaitForAkceptButton();
+
+    SaveResult();
     }

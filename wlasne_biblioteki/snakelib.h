@@ -45,7 +45,7 @@ void DrawCrossInGrid(unsigned char xg, unsigned char yg, PCD8544_Pixel_t color);
  * Display has 6x84 lines
  * From top left to bottom right corner
  */
-void DrawBitMap(unsigned char *bitmap);
+void DrawBitMap(const unsigned char *bitmap);
 
 /*
  * Flipped pictures!
@@ -60,7 +60,7 @@ void DrawBitMapVerticalFlipped(unsigned char *bitmap);
 /*
  * Internal function for DrawBitMap
  */
-void _HelpDrawBitMap(int i, int j, unsigned char *bitmap);
+void _HelpDrawBitMap(int i, int j, const unsigned char *bitmap);
 
 /*
  * Easy function for powers
@@ -71,4 +71,5 @@ void ClearWindow(void);
 void DrawFrame(void);
 void DrawEndGameScreen(void);
 void DrawSnake(void);
+
 

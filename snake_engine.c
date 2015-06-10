@@ -4,6 +4,8 @@
 #include "snakelib.h"
 #include "stm32f4xx_rng.h"
 #include "stm32f4xx_tim.h"
+#include "ff.h"
+
 
 //Coordinate SnakeSegments[252]; //or in StateGame struct with dynamic alocation memory
 StateButton 	Button;
@@ -68,7 +70,7 @@ void SetPlayerPoints(unsigned int points)
     StateG.PlayerPoints=points;
     }
 
-unsigned int GetPlayerPoints(void)
+unsigned char GetPlayerPoints(void)
     {
     return StateG.PlayerPoints;
     }
@@ -379,3 +381,296 @@ void TimerLoop()
 
     TIM_Cmd(TIM3, DISABLE);
     }
+
+void SaveResult()
+    {
+    #define PLAYER_CHAR 4	//3xchar (nick) +  1xchar (points)
+					    //player number: first player = 0, second = 1, third = 2
+    unsigned char TabTemp[12] = {0}; //3 position x 4char
+    unsigned char TabPlayer[4];
+
+    FATFS fatfs;
+    FIL plik;
+    FRESULT fresult;
+    UINT odczytane_bajty;
+
+    char file[6]="FILE";
+    file[4]=GetSnakeSpeed()+48;
+    file[5]=0;
+
+
+    fresult = f_mount( 0, &fatfs );
+    fresult = f_open( &plik, (const char * )file, FA_OPEN_ALWAYS |  FA_READ );
+    if( fresult == FR_OK )
+    {
+	    f_lseek(&plik,0); //przesuniêcie kursora na pocz¹tek pliku
+	    fresult = f_read( &plik, TabTemp, 12, &odczytane_bajty); //odczyt danych
+	    fresult = f_close( &plik );
+
+	    unsigned char i;
+
+	    switch(odczytane_bajty)
+		{
+		      case 0: //0 players and save to first position
+			  {
+			  GetNickAndScores(TabPlayer);
+			  WriteResultToSd(TabPlayer, 4);
+			  break;
+			  }
+		      case 4: //1 players
+			  {
+			  if(TabTemp[3]>=GetPlayerPoints())
+			      {//when SD_Player >= New_Player
+
+			      GetNickAndScores(TabPlayer);
+
+			      for(i=0;i<4;i++)
+				  {
+				  TabTemp[i+4]=TabPlayer[i];
+				  }
+			      }
+			  else//when SD_Player < New_Player
+			      {
+			      GetNickAndScores(TabPlayer);
+			      CopyPlayerInTempTab(TabTemp,0,1);
+
+			      for(i=0;i<4;i++)
+				  {
+				  TabTemp[i]=TabPlayer[i];
+				  }
+
+			      }
+			      WriteResultToSd(TabTemp, 8);
+
+			  break;
+			  }
+
+		      case 8: //2 players
+			  {
+			  if(TabTemp[7]>=GetPlayerPoints())
+			      {//when SD_Player2 >= New_Player
+
+			      GetNickAndScores(TabPlayer);
+
+			      for(i=0;i<4;i++)
+				  {
+				  TabTemp[i+8]=TabPlayer[i];
+				  }
+			      }
+			  else //when SD_Player2 < New_Player
+			      {
+			      CopyPlayerInTempTab(TabTemp,1,2);
+			      GetNickAndScores(TabPlayer);
+
+			      if(TabTemp[3]>=GetPlayerPoints())
+				  {//when SD_Player1 >= New_Player
+
+				      for(i=0;i<4;i++)
+					  {
+					  TabTemp[i+4]=TabPlayer[i];
+					  }
+				  }
+				  else
+				  {//when SD_Player1 < New_Player
+
+				      CopyPlayerInTempTab(TabTemp,0,1);
+
+				      for(i=0;i<4;i++)
+					  {
+					  TabTemp[i]=TabPlayer[i];
+					  }
+				  }
+			      }
+
+			  WriteResultToSd(TabTemp, 12);
+			  break;
+			  }
+
+		      case 12: //3 players
+			  {
+			  if(TabTemp[11]>=GetPlayerPoints())
+			      {//when SD_Player3 >= New_Player
+
+			      }
+			      else //when SD_Player3 < New_Player
+				  {
+
+				  if(TabTemp[7]>=GetPlayerPoints())
+				      {//when SD_Player2 >= New_Player
+
+				      GetNickAndScores(TabPlayer);
+
+				      for(i=0;i<4;i++)
+					  {
+					  TabTemp[i+8]=TabPlayer[i];
+					  }
+				      }
+				  else //when SD_Player2 < New_Player
+				      {
+				      CopyPlayerInTempTab(TabTemp,1,2);
+				      GetNickAndScores(TabPlayer);
+
+				      if(TabTemp[3]>=GetPlayerPoints())
+					  {//when SD_Player1 >= New_Player
+
+					      for(i=0;i<4;i++)
+						  {
+						  TabTemp[i+4]=TabPlayer[i];
+						  }
+					  }
+					  else
+					  {//when SD_Player1 < New_Player
+
+					      CopyPlayerInTempTab(TabTemp,0,1);
+
+					      for(i=0;i<4;i++)
+						  {
+						  TabTemp[i]=TabPlayer[i];
+						  }
+					  }//else3
+				      }//else2
+				  }//else1
+
+			  WriteResultToSd(TabTemp, 12);
+			  break;
+			  }
+
+		      default: //error
+			  {
+			  break;
+			  }
+		}//switch
+
+    }//if fresult == FR_OK
+    else
+	{
+	//SD Modul is empty
+	}
+
+}
+
+void CopyPlayerInTempTab(unsigned char *Tab, unsigned char SourcePlayer, unsigned char DestinationPlayer)
+    {
+    //number of (source/destination) position players in table
+    //number from 0 to 2
+
+	char tmp = 0;
+	for(;tmp<PLAYER_CHAR;tmp++)
+	{
+	Tab[DestinationPlayer*PLAYER_CHAR + tmp] = Tab[SourcePlayer*PLAYER_CHAR + tmp];
+	}
+    }
+
+void GetNickAndScores(unsigned char * TabPlayer)
+    {
+    char PositionInNick=1;
+    char Nick[4]="AAA";
+    char TmpChar=65;
+    //const char StartChar=65; //65=='A'
+    //const char EndChar=90;   //90=='Z'
+
+    InitStateButton2(Button_None);
+
+    SetModifyFlag(NotModify);
+    PCD8544_Clear();
+    PCD8544_GotoXY(33,20);
+    PCD8544_Puts(Nick,PCD8544_Pixel_Set,PCD8544_FontSize_5x7);
+
+    PCD8544_GotoXY(31+(PositionInNick-1)*6,30);
+    PCD8544_DrawLine(31+(PositionInNick-1)*6,30,33+(PositionInNick)*6,30,PCD8544_Pixel_Set);
+
+    PCD8544_Refresh();
+
+    while(PositionInNick<4)
+	{
+		if(GetModifyFlag()==Modify)
+		{
+			switch(GetButtonState())
+			{
+			    case Button_Akcept:
+				{
+				Nick[PositionInNick-1]=TmpChar;
+
+				PositionInNick++;
+				TmpChar=65;
+				break;
+				}
+
+			    case Button_Up:
+				{
+				if(TmpChar==90)
+				    {
+				    TmpChar=65;
+				    }
+				else
+				    {
+				    TmpChar++;
+				    }
+				Nick[PositionInNick-1]=TmpChar;
+				break;
+				}
+
+			    case Button_Down:
+				{
+				if(TmpChar==65)
+				    {
+				    TmpChar=90;
+				    }
+				else
+				    {
+				    TmpChar--;
+				    }
+				Nick[PositionInNick-1]=TmpChar;
+				break;
+				}
+
+			    default:
+				{
+				break;
+				}
+			}//switch
+
+		SetModifyFlag(NotModify);
+		PCD8544_Clear();
+	        PCD8544_GotoXY(33,20);
+		PCD8544_Puts(Nick,PCD8544_Pixel_Set,PCD8544_FontSize_5x7);
+
+		PCD8544_GotoXY(31+(PositionInNick-1)*6,30);
+		PCD8544_DrawLine(31+(PositionInNick-1)*6,30,32+(PositionInNick)*6,30,PCD8544_Pixel_Set);
+
+		PCD8544_Refresh();
+
+		}//if GetModifyFlag()==Modify
+	}//while - PositionInNick
+
+    TabPlayer[0]=Nick[0];
+    TabPlayer[1]=Nick[1];
+    TabPlayer[2]=Nick[2];
+    TabPlayer[3]=GetPlayerPoints();
+    }
+
+void WriteResultToSd(unsigned char * Tab, char BytesToSave)
+    {
+	FATFS fatfs;
+	FIL plik;
+	FRESULT fresult;
+	UINT SavedBytes;
+
+	char file[6]="FILE";
+	file[4]=GetSnakeSpeed()+48;
+	file[5]=0;
+
+
+	fresult = f_mount( 0, &fatfs );
+	fresult = f_open( &plik, (const char * )file, FA_OPEN_ALWAYS | FA_WRITE );
+	if( fresult == FR_OK )
+	{
+		f_lseek(&plik,0); //przesuniêcie kursora na pocz¹tek pliku
+		fresult = f_write( &plik, Tab, (UINT) BytesToSave, &SavedBytes);
+	}
+	fresult = f_close( &plik );
+
+    }
+
+
+

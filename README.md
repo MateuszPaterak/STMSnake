@@ -6,11 +6,16 @@ Implementacja gry Snake na mikrokontrolerze STM32F4 z wykorzystaniem wyświetlac
 
 Wykorzystane gotowe biblioteki:
 -sterownik wyświetlacza:
- +źródło: http://stm32f4-discovery.com
+ +źródło: by Tilen Majerle (http://stm32f4-discovery.com)
  +obsługa wymiany danych z wyświetlaczem
  +rysowanie punktów, linii, prostokątów, okręgów
  +ustawienie kursora i wyświetlanie znaków 5x7 oraz 3x5
  +zmiana konstrastu obrazu
+
+-sterownik SD
+ +źródło: F4_Fat_SD by mrh (www.elektroda.pl)
+ +obsługa interfejsu SPI
+ +obsługa systemu plików FAT
 
 Własne bibliteki rozszerzające funkcjonalność:
 -snkakelib (grafika)

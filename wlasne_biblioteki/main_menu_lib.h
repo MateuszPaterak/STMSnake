@@ -32,4 +32,9 @@ void SetMenuPositions(unsigned char Number);
 unsigned char GetMenuPositions(void);
 void SelectAction(unsigned char NumberOfAction);
 
+void HighScoresMenu(void);
+void ChooseFileScore(unsigned char Position);
+void DisplayScores(char * file);
+void WaitForAkceptButton(void);
+
 #endif //__main_menu_lib_h

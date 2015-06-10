@@ -4,6 +4,7 @@
 #include "stdio.h"
 #include "snake_engine.h"
 
+
 extern StateGame StateG;
 
 void DrawFilledBox(unsigned char x, unsigned char y, PCD8544_Pixel_t color)
@@ -51,7 +52,7 @@ void DrawCrossInGrid(unsigned char xg, unsigned char yg, PCD8544_Pixel_t color)
 	}
     }
 
-void DrawBitMap(unsigned char *bitmap)
+void DrawBitMap(const unsigned char *bitmap)
     {
     int i,j;
 
@@ -76,7 +77,7 @@ void DrawBitMapVerticalFlipped(unsigned char *bitmap)
 	}
     }
 
-void _HelpDrawBitMap(int i, int j, unsigned char *bitmap)
+void _HelpDrawBitMap(int i, int j,const unsigned char *bitmap)
     {
     int k=1;
     for(k=0;k<8;k++)

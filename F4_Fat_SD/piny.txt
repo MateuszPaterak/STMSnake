@@ -1,0 +1,1 @@
+Karta jest pod³¹czona do SPI2, a CS do PB11.

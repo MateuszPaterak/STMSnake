@@ -58,7 +58,7 @@ Coordinate GetSnakeSegment(unsigned int Index);
 void SetLengthSnake(unsigned char Length);
 unsigned char GetLengthSnake(void);
 void SetPlayerPoints(unsigned int points);
-unsigned int GetPlayerPoints(void);
+unsigned char GetPlayerPoints(void);
 void SetSnakeSpeed(unsigned char Speed);
 unsigned char GetSnakeSpeed(void);
 void SetSnakeHeadSegment(Coordinate Segment);
@@ -82,5 +82,10 @@ ModifyFlagStatus GetModifyFlag(void);
 //other
 char RunPause(void);
 void TimerLoop(void);
+
+void SaveResult(void);
+void GetNickAndScores(unsigned char * TabPlayer);
+void WriteResultToSd(unsigned char * Tab, char BytesToSave);
+void CopyPlayerInTempTab(unsigned char *Tab, unsigned char SourcePlayer, unsigned char DestinationPlayer);
 
 #endif
