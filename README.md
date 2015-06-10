@@ -1,19 +1,47 @@
 ﻿# STMSnake
 
 <h2>Overview</h2>
-</br>Our procject implement a polular 2D game Snake on STM32F4 microcontroler with display screen from Nokia 3310, SD Cart Module and simple keyboard build with microswitch buttons.
+</br>Our procject implement a polular 2D game Snake on STM32F4 microcontroler with display screen from Nokia 3310, SD Card Module and simple keyboard build with microswitch buttons.
 <h2>Description</h2>
 <h4>Display</h4>
 </br>Dispaly resolution: 84 x 48
 </br>Interface: SPI
-</br>
-</br>
+</br>Driver source: http://stm32f4-discovery.com (by Tilen Majerle)
+<ul>
+<li>Drawing: points, lines, rectangles and circles</li>
+<li>Drawing: chars 5x7 and 3x5 (pixels)</li>
+<li>Change a display contrast</li>
+</ul>
+</br>Our functions
+<ul>
+<li>Drawing bitmap</li>
+<li>Drawing snake</li>
+<li>Drawing simple elements of game environment (in gird)</li>
+</ul>
+
+<h4>SD Card Module</h4>
+</br>Interface: SPI
+</br>Driver source: www.elektroda.pl (by mrh)
+</br>Support FAT file system
+
+<h4>The most important file in project:</h4>
+<ul>
+<li>snkakelib (graphic)</li>
+<li>snake_engine (important function for game logic)</li>
+snake_game
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+</ul>
 
 <h2>Tools </h2>
 <h2>How to run </h2>
 <h2>How to compile</h2>
 <h2>Future improvements</h2>
 <h2>Attributions</h2>
+</br>Display driver source: http://stm32f4-discovery.com (by Tilen Majerle)
+</br>SD Card driver source: www.elektroda.pl (by mrh)
 <h2>License</h2>
 <h2>Credits</h2>
 
@@ -21,31 +49,6 @@
 The project was conducted during the Microprocessor Lab course held by the Institute of Control and Information Engineering, Poznan University of Technology.
 Supervisor: Michał Fularz 
 
-
-
-
-
-
-
-
-
-
-
-Implementacja gry Snake na mikrokontrolerze STM32F4 z wykorzystaniem wyświetlacza LCD Nokii 3310 (84 x 48).
-
-
-Wykorzystane gotowe biblioteki:
-</br>-sterownik wyświetlacza:
-</br> +źródło: by Tilen Majerle (http://stm32f4-discovery.com)
-</br> +obsługa wymiany danych z wyświetlaczem
-</br> +rysowanie punktów, linii, prostokątów, okręgów
-</br> +ustawienie kursora i wyświetlanie znaków 5x7 oraz 3x5
-</br> +zmiana konstrastu obrazu
-
--sterownik SD
- +źródło: F4_Fat_SD by mrh (www.elektroda.pl)
- +obsługa interfejsu SPI
- +obsługa systemu plików FAT
 
 Własne bibliteki rozszerzające funkcjonalność:
 -snkakelib (grafika)
@@ -110,3 +113,4 @@ Do wprowadzenia opcjonalnie w przyszłości:
 -losowe generowanie przeszkód wewnątrz
 -losowe generowanie tuneli
 -powiększenie mapy poza widoczny obszar
+
