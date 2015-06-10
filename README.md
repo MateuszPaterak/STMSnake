@@ -41,20 +41,27 @@
 <li>FastLCD 1.2.0 by Bojan (Free tools to help drawing bitmap)</li>
 <li>LCDAssistant by Radoslaw Kwiecen (Free tools for conversions bitmap to byte arrays)</li>
 </ul>
+
 <h2>How to run </h2>
+</br>Version 1.0.0
 </br>You need only STM32F4, Nokia 3310 display screen, SD Cart Module and keyboard with min 5 buttons
+
 <h2>How to compile</h2>
 </br> Keep calm and compile it.
+
 <h2>Future improvements</h2>
 </br>Correct function organizations inside libraries
 </br>Sometimes game crashing when SD Card is not in module.
 </br>To add in future: generate tunnel, barriers and multiplayer mode
+
 <h2>Attributions</h2>
 </br>Display driver source: http://stm32f4-discovery.com (by Tilen Majerle)
 </br>SD Card driver source: www.elektroda.pl (by mrh)
 </br>Source graphic for bitmap: http://etc.usf.edu/clipart/7200/7221/snake_7221.htm
+
 <h2>License</h2>
 </br> License: GNU GPL v3
+
 <h2>Credits</h2>
 <ul>
 <li>Mateusz Paterak </li>
