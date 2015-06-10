@@ -26,91 +26,41 @@
 
 <h4>The most important file in project:</h4>
 <ul>
-<li>snkakelib (graphic)</li>
-<li>snake_engine (important function for game logic)</li>
-snake_game
-<li></li>
-<li></li>
-<li></li>
-<li></li>
+<li>snkakelib.c (graphic)</li>
+<li>snake_engine.c (important function for game logic and SD support)</li>
+<li>snake_game.c (main game loop)</li>
+<li>button.c (configure buttons)</li>
+<li>IRQHandler.c (handling buttons interrupts)</li>
+<li>main_menu_lib.c (function to serve menu)</li>
+<li>TimerConfig (configure timers)</li>
 </ul>
 
 <h2>Tools </h2>
+<ul>
+<li>CooCox CoIDE v 1.7.7</li>
+<li>FastLCD 1.2.0 by Bojan (Free tools to help drawing bitmap)</li>
+<li>LCDAssistant by Radoslaw Kwiecen (Free tools for conversions bitmap to byte arrays)</li>
+</ul>
 <h2>How to run </h2>
+</br>You need only STM32F4, Nokia 3310 display screen, SD Cart Module and keyboard with min 5 buttons
 <h2>How to compile</h2>
+</br> Keep calm and compile it.
 <h2>Future improvements</h2>
+</br>Correct function organizations inside libraries
+</br>Sometimes game crashing when SD Card is not in module.
+</br>To add in future: generate tunnel, barriers and multiplayer mode
 <h2>Attributions</h2>
 </br>Display driver source: http://stm32f4-discovery.com (by Tilen Majerle)
 </br>SD Card driver source: www.elektroda.pl (by mrh)
+</br>Source graphic for bitmap: http://etc.usf.edu/clipart/7200/7221/snake_7221.htm
 <h2>License</h2>
+</br> License: GNU GPL v3
 <h2>Credits</h2>
+<ul>
+<li>Mateusz Paterak </li>
+<li>Adam Filipowicz</li>
+</ul>
 
 
 The project was conducted during the Microprocessor Lab course held by the Institute of Control and Information Engineering, Poznan University of Technology.
 Supervisor: Michał Fularz 
-
-
-Własne bibliteki rozszerzające funkcjonalność:
--snkakelib (grafika)
- +wyświetlanie wypełnionych i pustych w środku prostokątów (o stałej wielkości) 'na siatce'
- +rysowanie bitmap z gotowej tablicy 
- +rysowanie węża na podstawie tablicy
-
- +ramka gry
- +czyszczenie okna wewnątrz ramki
- +i inne mniejszcze dodatki
-
--snake_engine (najważniejsze elementy gry)
- +struktury:
-  +Coordinate	(współrzędne)
-  +StateGame	(informacje o współrzędnych węża, punkty gracza itd)
-  +StateButton	(ostatni przycisk i flaga zmodyfikowania)
- 
- +Typy wyliczeniowe:
-  +ModifyFlagStatus	(flaga przycisku)
-  +ButtonState		(oznaczenia przycisków)
-  +CollisionsState	(flagi kolizji)
-  +GameStatus		(flagi statusu gry)
-
- +funkcje:
-  +wypełnienie wstępnych wartości struktur
-  +dodawanie i pobieranie informacji o współrzędnych węża
-  +dodawanie i pobieranie długości węża
-  +dodawanie i pobieranie punktów
-  +sprawdzanie kolizji z ramką, samym sobą i owocem
-  +blokada 'cofnięcia się w siebie'
-  +generowanie owocu wewnątrz ramki i poza wężem
-
-  +pobieranie i wstawianie stanu przycisku i jej flagi
-
-  +pauza gry
-  +regulowana długość czasu kroku
-
--snake_game
- +zawiera główną pętlę gry
-
--main_menu_lib
- +funkcje odpowiedzialne za działanie poszczególnych menu
-  +rysowanie pozycji menu
-  +wyświetlanie ramki zaznaczenia
-  +możliwość przejścia z pierwszej pozycji do ostatniej i vice versa
-
--button
- +konfiguracja przycisków
- +wejście z podcięgnięciem do GND z wyzwalaniem przerwania na zbocze narastające
-
--IRQHandler (obsługa przerwań przycisków)
- +załączenie timera sprawdzającego ponownie stan przycisku
- +przerwanie timera ustawia zawartość struktury przycisku i wyłącza się
-
--TimerConfig (ustawienia timerów)
- +ponownego sprawdzania przycisku
- +sterowanie długością cyklu gry
-
-
-
-Do wprowadzenia opcjonalnie w przyszłości:
--losowe generowanie przeszkód wewnątrz
--losowe generowanie tuneli
--powiększenie mapy poza widoczny obszar
-
