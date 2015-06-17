@@ -119,7 +119,6 @@ CollisionsState CheckCollisions(Coordinate Segment)
 	Coordinate tmp;
 	do							//check collisions with the body of a snake
 	{
-	    //tmp = GetSnakeSegment(LengthCount-1);
 	    tmp = GetSnakeSegment(LengthCount);			//first moves the tail, then head :)
 	    if(tmp.x==Segment.x && tmp.y==Segment.y)
 		{
@@ -566,8 +565,8 @@ void GetNickAndScores(unsigned char * TabPlayer)
     char PositionInNick=1;
     char Nick[4]="AAA";
     char TmpChar=65;
-    //const char StartChar=65; //65=='A'
-    //const char EndChar=90;   //90=='Z'
+    //65=='A'
+    //90=='Z'
 
     InitStateButton2(Button_None);
 

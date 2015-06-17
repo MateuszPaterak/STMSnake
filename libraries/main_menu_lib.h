@@ -6,7 +6,6 @@
 typedef struct
 {
     unsigned char PositionNumber;	//value from 1 to NumberOfPosition
-//    unsigned char NumberOfPosition;
 }MainMenuStatus;
 
 

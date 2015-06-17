@@ -104,7 +104,6 @@ void SelectAction(unsigned char NumberOfAction)
 	    case 4:
 		{
 			FATFS fatfs;
-			//FRESULT fresult;
 			f_mount( 0, &fatfs );
 			f_unlink ("FILE1"); //fizyczne usuniêcie pliku
 			f_unlink ("FILE2");

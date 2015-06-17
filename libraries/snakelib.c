@@ -21,12 +21,12 @@ void DrawEmptyBox(unsigned char x, unsigned char y)
 
 //Grid - siatka
 //Filled- white or black!
-void DrawFilledBoxInGrid(unsigned char xg, unsigned char yg, PCD8544_Pixel_t color) //ok
+void DrawFilledBoxInGrid(unsigned char xg, unsigned char yg, PCD8544_Pixel_t color)
     {
     PCD8544_DrawFilledRectangle(xg*BOXDIM, yg*BOXDIM, xg*BOXDIM+BOXDIM-1, yg*BOXDIM+BOXDIM-1, color);
     }
 
-void DrawEmptyBoxInGrid(unsigned char xg, unsigned char yg)//ok
+void DrawEmptyBoxInGrid(unsigned char xg, unsigned char yg)
     {
     PCD8544_DrawFilledRectangle(xg*BOXDIM, yg*BOXDIM, xg*BOXDIM+BOXDIM-1, yg*BOXDIM+BOXDIM-1, PCD8544_Pixel_Set);
     PCD8544_DrawFilledRectangle(xg*BOXDIM+1, yg*BOXDIM+1, xg*BOXDIM+BOXDIM -2 , yg*BOXDIM+BOXDIM -2 , PCD8544_Pixel_Clear);
@@ -148,7 +148,6 @@ void DrawEndGameScreen()
 
 void DrawSnake()
     {
-    //PCD8544_Clear();
 
     unsigned char count=0;
 
@@ -162,5 +161,4 @@ void DrawSnake()
 	DrawEmptyBoxInGrid(StateG.SnakeSegments[count].x,StateG.SnakeSegments[count].y);
 	count++;
 	}
-    //PCD8544_Refresh();
     }

@@ -25,7 +25,7 @@ void StartSnakeGame()
 		SetButtonState(Button_None);
 		RunPause();
 		SetButtonState(ButtonStatusBeforePause);
-		//continue;
+
 	}
 	if((GetButtonState()!=Button_None) && (GetButtonState()!=Button_Akcept)) //to safe button status before Pause, to know where are going after pause
 	    {
