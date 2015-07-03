@@ -1,6 +1,8 @@
-#include "include.h"
 #include "snake_engine.h"
 #include "TimerConfig.h"
+#include "tm_stm32f4_pcd8544.h"
+#include "snakelib.h"
+#include "main_menu_lib.h"
 
 void StartSnakeGame()
     {
@@ -14,12 +16,12 @@ void StartSnakeGame()
     DrawFrame();
 
     Fruit=GenerateFruit();
-    InitStateButton();
+    InitStateButton(Button_Right);
 
     while(GameSt)
 	{
 
-	if(GetButtonState()==Button_Akcept) //go to pause in game
+	if(GetButtonState()==Button_Accept) //go to pause in game
 	{
 		SetModifyFlag(NotModify);
 		SetButtonState(Button_None);
@@ -27,7 +29,7 @@ void StartSnakeGame()
 		SetButtonState(ButtonStatusBeforePause);
 
 	}
-	if((GetButtonState()!=Button_None) && (GetButtonState()!=Button_Akcept)) //to safe button status before Pause, to know where are going after pause
+	if((GetButtonState()!=Button_None) && (GetButtonState()!=Button_Accept)) //to safe button status before Pause, to know where are going after pause
 	    {
 	    ButtonStatusBeforePause=GetButtonState();
 	    }
@@ -100,7 +102,7 @@ void StartSnakeGame()
     DeInitStateGame();
 
     DrawEndGameScreen();
-    WaitForAkceptButton();
+    WaitForAcceptButton();
 
     SaveResult();
     }

@@ -1,4 +1,6 @@
+#ifndef __snake_game
+#define __snake_game
 
+void StartSnakeGame(void);
 
-
-void StartSnakeGame();
+#endif

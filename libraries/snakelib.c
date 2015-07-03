@@ -1,6 +1,5 @@
 #include "snakelib.h"
 #include "snake_engine.h"
-#include "include.h"
 #include "stdio.h"
 #include "snake_engine.h"
 
@@ -11,7 +10,6 @@ void DrawFilledBox(unsigned char x, unsigned char y, PCD8544_Pixel_t color)
     {
     PCD8544_DrawFilledRectangle(x, y, x+BOXDIMENSION-1, y+BOXDIMENSION-1, color);
     }
-
 
 void DrawEmptyBox(unsigned char x, unsigned char y)
     {
@@ -156,7 +154,7 @@ void DrawSnake()
 	DrawFilledBoxInGrid(StateG.SnakeSegments[count].x,StateG.SnakeSegments[count].y,PCD8544_Pixel_Set);
 	count++;
 	}
-    if(count==(StateG.LengthSnake-1))				//special view of snake head (head is at the end of the table)
+    if(count==(StateG.LengthSnake-1))	//special view of snake head (head is at the end of the table)
 	{
 	DrawEmptyBoxInGrid(StateG.SnakeSegments[count].x,StateG.SnakeSegments[count].y);
 	count++;

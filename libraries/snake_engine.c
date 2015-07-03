@@ -6,18 +6,16 @@
 #include "stm32f4xx_tim.h"
 #include "ff.h"
 
-
-//Coordinate SnakeSegments[252]; //or in StateGame struct with dynamic alocation memory
 StateButton 	Button;
 StateGame 	StateG;
 
 /*
  * StateGame struct
  */
-void InitStateGame(void)
+void InitStateGame(void)//init game and add 3 start segment of snake
     {
     StateG.SnakeSegments=calloc(MAX_LENGTH_SNAKE,sizeof(Coordinate));
-    StateG.LengthSnake=0; //3
+    StateG.LengthSnake=0;
     StateG.PlayerPoints=0;
 
     //Set the initial positions configuration
@@ -36,6 +34,7 @@ void DeInitStateGame(void)
     {
     free(StateG.SnakeSegments);
     }
+
 void AddSnakeSegmentAtTheEnd(Coordinate Segment)
     {
     if(StateG.LengthSnake!=MAX_LENGTH_SNAKE)
@@ -98,9 +97,8 @@ Coordinate GetSnakeHeadSegment()
     return StateG.SnakeSegments[StateG.LengthSnake-1];
     }
 
-//and move one position to left
 void RemoveLastTailSegment()
-    {
+    {	//move one position to left
     unsigned char count=0;
     while(count<StateG.LengthSnake)
 	{
@@ -108,8 +106,6 @@ void RemoveLastTailSegment()
 	count++;
 	}
     }
-
-
 
 CollisionsState CheckCollisions(Coordinate Segment)
     {
@@ -119,7 +115,7 @@ CollisionsState CheckCollisions(Coordinate Segment)
 	Coordinate tmp;
 	do							//check collisions with the body of a snake
 	{
-	    tmp = GetSnakeSegment(LengthCount);			//first moves the tail, then head :)
+	    tmp = GetSnakeSegment(LengthCount);			//first moves the tail, then head
 	    if(tmp.x==Segment.x && tmp.y==Segment.y)
 		{
 		return Collisions;
@@ -255,7 +251,7 @@ Coordinate GenerateFruit()
     rng_y = RNG_GetRandomNumber() % ((48/BOXDIM)-2);
     rng_y++;
 
-    do							//compare fruit coordinate with the body of snake
+    do	//compare fruit coordinate with the body of snake
     	{
     	    tmp = GetSnakeSegment(LengthCount);
 
@@ -277,7 +273,7 @@ Coordinate GenerateFruit()
     		}
 	    }
 
-    	}while(LengthCount<=(GetLengthSnake()-1)); //to check
+    	}while(LengthCount<=(GetLengthSnake()-1));
 
     fruit.x=rng_x;
     fruit.y=rng_y;
@@ -292,7 +288,7 @@ char RunPause(void)
 		{
 		switch(GetButtonState())
 		    {
-		    case Button_Akcept:
+		    case Button_Accept:
 		    case Button_Up:
 		    case Button_Down:
 		    case Button_Left:
@@ -320,12 +316,7 @@ char RunPause(void)
 /*
  * StateButton struct
  */
-void InitStateButton(void) //set name to "SetInitStateButton"
-    {
-    Button.Button=Button_Right;
-    Button.ModifyFlag=NotModify;
-    }
-void InitStateButton2(ButtonState BuSt) //set name to "SetStateButton"
+void InitStateButton(ButtonState BuSt) //set name to "SetStateButton"
     {
     Button.Button=BuSt;
     Button.ModifyFlag=NotModify;
@@ -336,7 +327,7 @@ void InitStateButton2(ButtonState BuSt) //set name to "SetStateButton"
  *	-Button_Up
  *	-Button_Right
  *	-Button_Down
- *	-Button_Akcept
+ *	-Button_Accept
  */
 void SetButtonState(ButtonState But)
     {
@@ -384,14 +375,14 @@ void TimerLoop()
 void SaveResult()
     {
     #define PLAYER_CHAR 4	//3xchar (nick) +  1xchar (points)
-					    //player number: first player = 0, second = 1, third = 2
+				//player number: first player = 0, second = 1, third = 2
     unsigned char TabTemp[12] = {0}; //3 position x 4char
     unsigned char TabPlayer[4];
 
     FATFS fatfs;
-    FIL plik;
+    FIL Fil;
     FRESULT fresult;
-    UINT odczytane_bajty;
+    UINT ReadByte;
 
     char file[6]="FILE";
     file[4]=GetSnakeSpeed()+48;
@@ -399,16 +390,16 @@ void SaveResult()
 
 
     fresult = f_mount( 0, &fatfs );
-    fresult = f_open( &plik, (const char * )file, FA_OPEN_ALWAYS |  FA_READ );
+    fresult = f_open( &Fil, (const char * )file, FA_OPEN_ALWAYS |  FA_READ );
     if( fresult == FR_OK )
     {
-	    f_lseek(&plik,0); //przesuniêcie kursora na pocz¹tek pliku
-	    fresult = f_read( &plik, TabTemp, 12, &odczytane_bajty); //odczyt danych
-	    fresult = f_close( &plik );
+	    f_lseek(&Fil,0); //move the cursor to the start of a file
+	    fresult = f_read( &Fil, TabTemp, 12, &ReadByte); //read data
+	    fresult = f_close( &Fil );
 
 	    unsigned char i;
 
-	    switch(odczytane_bajty)
+	    switch(ReadByte)
 		{
 		      case 0: //0 players and save to first position
 			  {
@@ -568,7 +559,7 @@ void GetNickAndScores(unsigned char * TabPlayer)
     //65=='A'
     //90=='Z'
 
-    InitStateButton2(Button_None);
+    InitStateButton(Button_None);
 
     SetModifyFlag(NotModify);
     PCD8544_Clear();
@@ -586,7 +577,7 @@ void GetNickAndScores(unsigned char * TabPlayer)
 		{
 			switch(GetButtonState())
 			{
-			    case Button_Akcept:
+			    case Button_Accept:
 				{
 				Nick[PositionInNick-1]=TmpChar;
 
@@ -651,7 +642,7 @@ void GetNickAndScores(unsigned char * TabPlayer)
 void WriteResultToSd(unsigned char * Tab, char BytesToSave)
     {
 	FATFS fatfs;
-	FIL plik;
+	FIL Fil;
 	FRESULT fresult;
 	UINT SavedBytes;
 
@@ -661,15 +652,12 @@ void WriteResultToSd(unsigned char * Tab, char BytesToSave)
 
 
 	fresult = f_mount( 0, &fatfs );
-	fresult = f_open( &plik, (const char * )file, FA_OPEN_ALWAYS | FA_WRITE );
+	fresult = f_open( &Fil, (const char * )file, FA_OPEN_ALWAYS | FA_WRITE );
 	if( fresult == FR_OK )
 	{
-		f_lseek(&plik,0); //przesuniêcie kursora na pocz¹tek pliku
-		fresult = f_write( &plik, Tab, (UINT) BytesToSave, &SavedBytes);
+		f_lseek(&Fil,0); //move the cursor to the start of a file
+		fresult = f_write( &Fil, Tab, (UINT) BytesToSave, &SavedBytes);
 	}
-	fresult = f_close( &plik );
+	fresult = f_close( &Fil );
 
     }
-
-
-

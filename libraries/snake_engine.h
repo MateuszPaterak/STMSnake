@@ -1,5 +1,6 @@
-#ifndef _structcoordinate
-#define _structcoordinate
+#ifndef __snake_engine
+#define __snake_engine
+
 #define MAX_LENGTH_SNAKE ((84/BOXDIM-2)*(48/BOXDIM-2)) //or 252 (21*12)
 
 
@@ -8,7 +9,6 @@ typedef struct
      unsigned char x;
      unsigned char y;
  }Coordinate;
-
 
 typedef struct
 {
@@ -26,7 +26,7 @@ typedef struct
 
 typedef enum{
     NotModify=0,
-    Modify = 1 //!NotModify
+    Modify = 1
 }ModifyFlagStatus;
 
 typedef enum{
@@ -35,7 +35,7 @@ typedef enum{
     Button_Up=2,
     Button_Right=3,
     Button_Down=4,
-    Button_Akcept=5,
+    Button_Accept=5,
 }ButtonState;
 
 typedef enum{
@@ -53,11 +53,11 @@ typedef enum{
 void InitStateGame(void);
 void DeInitStateGame(void);
 void AddSnakeSegmentAtTheEnd(Coordinate Segment);
-void SetSnakeSegment(unsigned int Index,Coordinate Segment);
+void SetSnakeSegment(unsigned int Index, Coordinate Segment);
 Coordinate GetSnakeSegment(unsigned int Index);
 void SetLengthSnake(unsigned char Length);
 unsigned char GetLengthSnake(void);
-void SetPlayerPoints(unsigned int points);
+void SetPlayerPoints(unsigned int Points);
 unsigned char GetPlayerPoints(void);
 void SetSnakeSpeed(unsigned char Speed);
 unsigned char GetSnakeSpeed(void);
@@ -72,9 +72,8 @@ Coordinate CheckAndCorretReversedDirection2(Coordinate NewHeadSegment);
 Coordinate GenerateFruit(void);
 
 //StateButton struct
-void InitStateButton(void);
-void InitStateButton2(ButtonState);
-void SetButtonState(ButtonState But);
+void InitStateButton(ButtonState Button);
+void SetButtonState(ButtonState Button);
 ButtonState GetButtonState(void);
 void SetModifyFlag(ModifyFlagStatus Flag);
 ModifyFlagStatus GetModifyFlag(void);
@@ -82,7 +81,6 @@ ModifyFlagStatus GetModifyFlag(void);
 //other
 char RunPause(void);
 void TimerLoop(void);
-
 void SaveResult(void);
 void GetNickAndScores(unsigned char * TabPlayer);
 void WriteResultToSd(unsigned char * Tab, char BytesToSave);

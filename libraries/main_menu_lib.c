@@ -1,8 +1,7 @@
-#include "include.h"
+#include "main_menu_lib.h"
 #include "snake_engine.h"
 #include "snake_game.h"
 #include "TimerConfig.h"
-
 #include "ff.h"
 
 #define HeightOfSelectionFrame 8
@@ -13,7 +12,7 @@ MainMenuStatus StatusMenu;
 
 void MainMenu()
     {
-    InitStateButton2(Button_None);
+    InitStateButton(Button_None);
     SetMenuPositions(1);
     unsigned char TmpMenuPositons=GetMenuPositions();
 
@@ -27,7 +26,7 @@ void MainMenu()
 	{
 		switch(GetButtonState())
 		{
-		    case Button_Akcept:
+		    case Button_Accept:
 			{
 			SetModifyFlag(NotModify);
 			SetButtonState(Button_None);
@@ -86,12 +85,12 @@ void SelectAction(unsigned char NumberOfAction)
     {
     switch(NumberOfAction)
 	{
-	    case 1:
+	    case 1: //main game loop
 		{
 		StartSnakeGame();
 		break;
 		}
-	    case 2:
+	    case 2: //difficulty menu
 		{
 		SpeedMenu();
 		break;
@@ -101,11 +100,11 @@ void SelectAction(unsigned char NumberOfAction)
 		HighScoresMenu();
 		break;
 		}
-	    case 4:
+	    case 4: //reset scores
 		{
 			FATFS fatfs;
 			f_mount( 0, &fatfs );
-			f_unlink ("FILE1"); //fizyczne usuniêcie pliku
+			f_unlink ("FILE1"); //physically removing the file from the SD card
 			f_unlink ("FILE2");
 			f_unlink ("FILE3");
 			f_unlink ("FILE4");
@@ -117,7 +116,7 @@ void SelectAction(unsigned char NumberOfAction)
 
 void HighScoresMenu()
     {
-    InitStateButton2(Button_None);
+    InitStateButton(Button_None);
     SetMenuPositions(1);
     unsigned char TmpMenuPositons=GetMenuPositions();
 
@@ -131,7 +130,7 @@ void HighScoresMenu()
 	{
 		switch(GetButtonState())
 		{
-		    case Button_Akcept:
+		    case Button_Accept:
 			{
 			SetModifyFlag(NotModify);
 
@@ -174,10 +173,10 @@ void HighScoresMenu()
 			}
 		}//switch
 
-	if(GetButtonState()==Button_Akcept) //exit from menu after set speed
+	if(GetButtonState()==Button_Accept) //exit from menu after set speed
 	    {
 	    SetModifyFlag(NotModify);
-	    break; //out from wile :)
+	    break; //out from while loop
 	    }//if2
 
 	SetMenuPositions(TmpMenuPositons);
@@ -233,7 +232,7 @@ void ChooseFileScore(unsigned char Position)
     SetModifyFlag(NotModify);
     while(flag)
 	{
-	if(GetModifyFlag()==Modify && GetButtonState()==Button_Akcept)
+	if(GetModifyFlag()==Modify && GetButtonState()==Button_Accept)
 		{
 		flag = 0;
 		}//if
@@ -244,31 +243,31 @@ void ChooseFileScore(unsigned char Position)
 void DisplayScores(char * file)
     {
     FATFS fatfs;
-    FIL plik;
+    FIL Fil;
     FRESULT fresult;
-    UINT odczytane_bajty,odczytane_bajty1,odczytane_bajty2,odczytane_bajty3;
+    UINT ReadData,ReadData1,ReadData2,ReadData3;
 
-    char n1[4],n2[4],n3[4],w1=0,w2=0,w3=0;
+    char n1[4],n2[4],n3[4],w1=0,w2=0,w3=0; //nX-player, wX-player score
     n1[3]=0;
     n2[3]=0;
     n3[3]=0;
 
     fresult = f_mount( 0, &fatfs );
-    fresult = f_open( &plik, (const char * )file, FA_OPEN_EXISTING |  FA_READ);
+    fresult = f_open( &Fil, (const char * )file, FA_OPEN_EXISTING |  FA_READ);
     if( fresult == FR_OK )
     {
-            f_lseek(&plik,0); //przesuniêcie kursora na pocz¹tek pliku
-            fresult = f_read( &plik, n1, 3, &odczytane_bajty1); //odczyt danych
-            fresult = f_read( &plik, &w1, 1, &odczytane_bajty);
-            fresult = f_read( &plik, n2, 3, &odczytane_bajty2);
-            fresult = f_read( &plik, &w2, 1, &odczytane_bajty);
-            fresult = f_read( &plik, n3, 3, &odczytane_bajty3);
-            fresult = f_read( &plik, &w3, 1, &odczytane_bajty);
+            f_lseek(&Fil,0); 				 //move the cursor to the start of a file
+            fresult = f_read( &Fil, n1, 3, &ReadData1); //read data
+            fresult = f_read( &Fil, &w1, 1, &ReadData);
+            fresult = f_read( &Fil, n2, 3, &ReadData2);
+            fresult = f_read( &Fil, &w2, 1, &ReadData);
+            fresult = f_read( &Fil, n3, 3, &ReadData3);
+            fresult = f_read( &Fil, &w3, 1, &ReadData);
 
 	    PCD8544_Clear();
 
-	    unsigned char d, j, s;
-	    if(odczytane_bajty1!=0)
+	    unsigned char j, d, s;	// j-unity d-dozens s-hundreds
+	    if(ReadData1!=0)
 		{
 		PCD8544_GotoXY(1,1+0*HeightOfSelectionFrame);
 		PCD8544_Puts(n1,PCD8544_Pixel_Set,PCD8544_FontSize_5x7);
@@ -299,7 +298,7 @@ void DisplayScores(char * file)
 		    }
 		}
 
-	    if(odczytane_bajty2!=0)
+	    if(ReadData2!=0)
 	   	{
 	    PCD8544_GotoXY(1,1+1*HeightOfSelectionFrame);
 	    PCD8544_Puts(n2,PCD8544_Pixel_Set,PCD8544_FontSize_5x7);
@@ -330,7 +329,7 @@ void DisplayScores(char * file)
 		    }
 	   	}
 
-	    if(odczytane_bajty3!=0)
+	    if(ReadData3!=0)
 	   	{
 	    PCD8544_GotoXY(1,1+2*HeightOfSelectionFrame);
 	    PCD8544_Puts(n3,PCD8544_Pixel_Set,PCD8544_FontSize_5x7);
@@ -370,12 +369,12 @@ void DisplayScores(char * file)
 	PCD8544_Refresh();
 
     }
-    fresult = f_close( &plik );
+    fresult = f_close( &Fil );
 }
 
 void SpeedMenu()
     {
-    InitStateButton2(Button_None);
+    InitStateButton(Button_None);
     SetMenuPositions(1);
     unsigned char TmpMenuPositons=GetMenuPositions();
 
@@ -389,13 +388,12 @@ void SpeedMenu()
 	{
 		switch(GetButtonState())
 		{
-		    case Button_Akcept:
+		    case Button_Accept:
 			{
 			SetModifyFlag(NotModify);
 
 			SetSpeedGame(GetMenuPositions());
 
-			//TmpMenuPositons = 1;
 			break;
 			}
 
@@ -433,10 +431,10 @@ void SpeedMenu()
 			}
 		}//switch
 
-	if(GetButtonState()==Button_Akcept) //exit from menu after set speed
+	if(GetButtonState()==Button_Accept) //exit from menu after set speed
 	    {
 	    SetModifyFlag(NotModify);
-	    break; //out from wile :)
+	    break; //out from while loop
 	    }//if2
 
 	SetMenuPositions(TmpMenuPositons);
@@ -544,13 +542,13 @@ unsigned char GetMenuPositions()
     return StatusMenu.PositionNumber;
     }
 
-void WaitForAkceptButton()
+void WaitForAcceptButton()
     {
     while(1)
 	{
 	if(GetModifyFlag()==Modify)
 	    {
-	    if(GetButtonState()==Button_Akcept)
+	    if(GetButtonState()==Button_Accept)
 		{
 		SetModifyFlag(NotModify);
 		break;

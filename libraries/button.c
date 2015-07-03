@@ -1,6 +1,9 @@
-#include "include.h"
+#include "stm32f4xx_gpio.h"
+#include "stm32f4xx_exti.h"
+#include "misc.h"
+#include "stm32f4xx_syscfg.h"
 
-//akcept
+//Accept
 void InitEXTIButtonPA0()
     {
 	GPIO_InitTypeDef  GPIO_InitStructure;
@@ -13,19 +16,19 @@ void InitEXTIButtonPA0()
     	GPIO_Init(GPIOA, &GPIO_InitStructure);
 
     	NVIC_InitTypeDef NVIC_InitStructure;
-    	NVIC_InitStructure.NVIC_IRQChannel = EXTI0_IRQn;    		// numer przerwania
-    	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;	// priorytet glowny
-    	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1; 		// subpriorytet
-    	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;    		// uruchom dany kanal
-    	NVIC_Init(&NVIC_InitStructure);			    		// zapisz wypelniona strukture do rejestrow
+    	NVIC_InitStructure.NVIC_IRQChannel = EXTI0_IRQn;    		// interrupt number
+    	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;	// main priority
+    	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1; 		// subpriority
+    	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;    		// run the channel
+    	NVIC_Init(&NVIC_InitStructure);			    		// save structure
 
     	EXTI_InitTypeDef EXTI_InitStructure;
-    	EXTI_InitStructure.EXTI_Line = GPIO_Pin_0;		    	// wybor numeru aktualnie konfigurowanej lini przerwan
-    	EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;    		// wybor trybu - przerwanie badz zdarzenie
-    	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising;		// wybor zbocza, na ktore zareaguje przerwanie
-    	EXTI_InitStructure.EXTI_LineCmd = ENABLE;	    		// urochom dana linie przerwan
-    	EXTI_Init(&EXTI_InitStructure);			    		// zapisz strukture konfiguracyjna przerwan zewnetrznych do rejestrow
-    	SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOA, EXTI_PinSource0);	// podlaczenie danego pinu portu do kontrolera przerwan
+    	EXTI_InitStructure.EXTI_Line = GPIO_Pin_0;		    	// select line
+    	EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;    		// select mode - interruption or event
+    	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising;		// selection slopes
+    	EXTI_InitStructure.EXTI_LineCmd = ENABLE;	    		// run a interrupt lines
+    	EXTI_Init(&EXTI_InitStructure);			    		// save structure
+    	SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOA, EXTI_PinSource0);	// connect pin with the interrupt controller
 
     }
 
@@ -40,23 +43,22 @@ void InitEXTIButtonPA1()
     	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_DOWN;
 
     	GPIO_Init(GPIOA, &GPIO_InitStructure);
-    	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);//group:2 sub-priority:8
+    	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);			//group:2 sub-priority:8
 
     	NVIC_InitTypeDef NVIC_InitStructure;
-    	NVIC_InitStructure.NVIC_IRQChannel = EXTI1_IRQn;    		// numer przerwania
-    	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;	// priorytet glowny
-    	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1; 		// subpriorytet
-    	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;    		// uruchom dany kanal
-    	NVIC_Init(&NVIC_InitStructure);			    		// zapisz wypelniona strukture do rejestrow
+    	NVIC_InitStructure.NVIC_IRQChannel = EXTI1_IRQn;    		// interrupt number
+    	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;	// main priority
+    	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1; 		// subpriority
+    	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;    		// run the channel
+    	NVIC_Init(&NVIC_InitStructure);			    		// save structure
 
     	EXTI_InitTypeDef EXTI_InitStructure;
-    	EXTI_InitStructure.EXTI_Line = GPIO_Pin_1;		    	// wybor numeru aktualnie konfigurowanej lini przerwan
-    	EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;    		// wybor trybu - przerwanie badz zdarzenie
-    	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising;    	// wybor zbocza, na ktore zareaguje przerwanie
-    	EXTI_InitStructure.EXTI_LineCmd = ENABLE;	    		// urochom dana linie przerwan
-    	EXTI_Init(&EXTI_InitStructure);			    		// zapisz strukture konfiguracyjna przerwan zewnetrznych do rejestrow
-    	// podlaczenie danego pinu portu do kontrolera przerwan
-    	SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOA,EXTI_PinSource1);
+    	EXTI_InitStructure.EXTI_Line = GPIO_Pin_1;		    	// select line
+    	EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;    		// select mode - interruption or event
+    	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising;    	// selection slopes
+    	EXTI_InitStructure.EXTI_LineCmd = ENABLE;	    		// run a interrupt lines
+    	EXTI_Init(&EXTI_InitStructure);			    		// save structure
+    	SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOA,EXTI_PinSource1);	// connect pin with the interrupt controller
 
     }
 
@@ -71,24 +73,23 @@ void InitEXTIButtonPA2()
     	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_DOWN;
 
     	GPIO_Init(GPIOA, &GPIO_InitStructure);
-//added
-    	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);//group:2 sub-priority:8
+
+    	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);			//group:2 sub-priority:8
 
     	NVIC_InitTypeDef NVIC_InitStructure;
-    	NVIC_InitStructure.NVIC_IRQChannel = EXTI2_IRQn;    		// numer przerwania
-    	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;	// priorytet glowny
-    	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1; 		// subpriorytet
-    	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;    		// uruchom dany kanal
-    	NVIC_Init(&NVIC_InitStructure);			    		// zapisz wypelniona strukture do rejestrow
+    	NVIC_InitStructure.NVIC_IRQChannel = EXTI2_IRQn;    		// interrupt number
+    	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;	// main priority
+    	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1; 		// subpriority
+    	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;    		// run the channel
+    	NVIC_Init(&NVIC_InitStructure);			    		// save structure
 
     	EXTI_InitTypeDef EXTI_InitStructure;
-    	EXTI_InitStructure.EXTI_Line = GPIO_Pin_2;		    	// wybor numeru aktualnie konfigurowanej lini przerwan
-    	EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;    		// wybor trybu - przerwanie badz zdarzenie
-    	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising;	// wybor zbocza, na ktore zareaguje przerwanie
-    	EXTI_InitStructure.EXTI_LineCmd = ENABLE;	    		// urochom dana linie przerwan
-    	EXTI_Init(&EXTI_InitStructure);			    		// zapisz strukture konfiguracyjna przerwan zewnetrznych do rejestrow
-    		// podlaczenie danego pinu portu do kontrolera przerwan
-    	SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOA,EXTI_PinSource2);
+    	EXTI_InitStructure.EXTI_Line = GPIO_Pin_2;		    	// select line
+    	EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;    		// select mode - interruption or event
+    	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising;		// selection slopes
+    	EXTI_InitStructure.EXTI_LineCmd = ENABLE;	    		// run a interrupt lines
+    	EXTI_Init(&EXTI_InitStructure);			    		// save structure
+    	SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOA,EXTI_PinSource2);	// connect pin with the interrupt controller
 
     }
 
@@ -103,25 +104,23 @@ void InitEXTIButtonPA3()
     	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_DOWN;
 
     	GPIO_Init(GPIOA, &GPIO_InitStructure);
-//added
+
    	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);//group:2 sub-priority:8
 
     	NVIC_InitTypeDef NVIC_InitStructure;
-    	NVIC_InitStructure.NVIC_IRQChannel = EXTI3_IRQn;    		// numer przerwania
-    	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;	// priorytet glowny
-    	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1; 		// subpriorytet
-    	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;    		// uruchom dany kanal
-    	NVIC_Init(&NVIC_InitStructure);			    		// zapisz wypelniona strukture do rejestrow
+    	NVIC_InitStructure.NVIC_IRQChannel = EXTI3_IRQn;    		// interrupt number
+    	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;	// main priority
+    	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1; 		// subpriority
+    	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;    		// run the channel
+    	NVIC_Init(&NVIC_InitStructure);			    		// save structure
 
     	EXTI_InitTypeDef EXTI_InitStructure;
-    	EXTI_InitStructure.EXTI_Line = GPIO_Pin_3;		    	// wybor numeru aktualnie konfigurowanej lini przerwan
-    	EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;    		// wybor trybu - przerwanie badz zdarzenie
-    	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising;
-    		// wybor zbocza, na ktore zareaguje przerwanie
-    	EXTI_InitStructure.EXTI_LineCmd = ENABLE;	    		// urochom dana linie przerwan
-    	EXTI_Init(&EXTI_InitStructure);			    		// zapisz strukture konfiguracyjna przerwan zewnetrznych do rejestrow
-    		// podlaczenie danego pinu portu do kontrolera przerwan
-    	SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOA,EXTI_PinSource3);
+    	EXTI_InitStructure.EXTI_Line = GPIO_Pin_3;		    	// select line
+    	EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;    		// select mode - interruption or event
+    	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising;		// selection slopes
+    	EXTI_InitStructure.EXTI_LineCmd = ENABLE;	    		// run a interrupt lines
+    	EXTI_Init(&EXTI_InitStructure);			    		// save structure
+    	SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOA,EXTI_PinSource3);	// connect pin with the interrupt controller
 
     }
 
@@ -136,23 +135,22 @@ void InitEXTIButtonPA4()
     	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_DOWN;
 
     	GPIO_Init(GPIOA, &GPIO_InitStructure);
-//added
-    	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);//group:2 sub-priority:8
+
+    	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);			//group:2 sub-priority:8
 
     	NVIC_InitTypeDef NVIC_InitStructure;
-    	NVIC_InitStructure.NVIC_IRQChannel = EXTI4_IRQn;    		// numer przerwania
-    	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;	// priorytet glowny
-    	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1; 		// subpriorytet
-    	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;    		// uruchom dany kanal
-    	NVIC_Init(&NVIC_InitStructure);			    		// zapisz wypelniona strukture do rejestrow
+    	NVIC_InitStructure.NVIC_IRQChannel = EXTI4_IRQn;    		// interrupt number
+    	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;	// main priority
+    	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1; 		// subpriority
+    	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;    		// run the channel
+    	NVIC_Init(&NVIC_InitStructure);			    		// save structure
 
     	EXTI_InitTypeDef EXTI_InitStructure;
-    	EXTI_InitStructure.EXTI_Line = GPIO_Pin_4;		    	// wybor numeru aktualnie konfigurowanej lini przerwan
-    	EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;    		// wybor trybu - przerwanie badz zdarzenie
-    	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising;
-    	// wybor zbocza, na ktore zareaguje przerwanie
-    	EXTI_InitStructure.EXTI_LineCmd = ENABLE;	    		// urochom dana linie przerwan
-    	EXTI_Init(&EXTI_InitStructure);			    		// zapisz strukture konfiguracyjna przerwan zewnetrznych do rejestrow
-    	// podlaczenie danego pinu portu do kontrolera przerwan
-    	SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOA,EXTI_PinSource4);
+    	EXTI_InitStructure.EXTI_Line = GPIO_Pin_4;		    	// select line
+    	EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;    		// select mode - interruption or event
+    	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising;		// selection slopes
+
+    	EXTI_InitStructure.EXTI_LineCmd = ENABLE;	    		// run a interrupt lines
+    	EXTI_Init(&EXTI_InitStructure);			    		// save structure
+    	SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOA,EXTI_PinSource4);	// connect pin with the interrupt controller
     }

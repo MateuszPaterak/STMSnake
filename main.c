@@ -1,4 +1,4 @@
-#include "include.h"
+#include "snakelib.h"
 #include "bitmap.h"
 #include "stm32f4xx_rng.h"
 #include "button.h"
@@ -15,18 +15,18 @@ int main(void)
 {
     SystemInit();
 
-    ////////////////// SPI 2 SD
+    ////////////////// SPI2 - SD
     fpu_enable();
     delay_init( 168 );
     SPI_SD_Init();
     //////////////////
 
-    RCC_AHB2PeriphClockCmd(RCC_AHB2Periph_RNG, ENABLE);//rng
+    RCC_AHB2PeriphClockCmd(RCC_AHB2Periph_RNG, ENABLE);	  //rng
     RNG_Cmd(ENABLE); //switch on
 
     RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE); //button
 
-    InitEXTIButtonPA0();//akcept
+    InitEXTIButtonPA0();//accept
     InitEXTIButtonPA1();//up
     InitEXTIButtonPA2();//right
     InitEXTIButtonPA3();//down
@@ -37,16 +37,16 @@ int main(void)
 
     RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE); //timer
 
-    ConfTim3(350); //init with _ s game period
+    ConfTim3(350); //init with start_value game period
     SetSnakeSpeed(3);
 
     PCD8544_Init(0x38); 				//Initialize LCD with 0x38 software contrast
 ////////////////////////////////////////////
 
-    DrawBitMap(Snake2);
+    DrawBitMap(SnakeBitMap);
 
     PCD8544_Refresh();
-    WaitForAkceptButton();
+    WaitForAcceptButton();
     PCD8544_Clear();
 
     MainMenu();

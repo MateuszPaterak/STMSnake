@@ -14,7 +14,7 @@ void MainMenu(void);
 /*
  *  Main Menu Snake's game
  */
-void DrawGameMainMenu();
+void DrawGameMainMenu(void);
 
 /*
  *  Draw mini frame around selected  menu's position
@@ -22,7 +22,7 @@ void DrawGameMainMenu();
      - PCD8544_Pixel_Clear
      - PCD8544_Pixel_Set
  */
-void DrawMenuSelectionFrame7x5(unsigned char NumOfPosition, PCD8544_Pixel_t color);
+void DrawMenuSelectionFrame7x5(unsigned char NumOfPosition, PCD8544_Pixel_t Color);
 
 void SpeedMenu(void);
 void DrawSpeedMenu(void);
@@ -33,7 +33,7 @@ void SelectAction(unsigned char NumberOfAction);
 
 void HighScoresMenu(void);
 void ChooseFileScore(unsigned char Position);
-void DisplayScores(char * file);
-void WaitForAkceptButton(void);
+void DisplayScores(char * File);
+void WaitForAcceptButton(void);
 
 #endif //__main_menu_lib_h

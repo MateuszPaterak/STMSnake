@@ -5,7 +5,7 @@
  *      Author: Grzesiek
  */
 
-#include "../lib_cm4/stm32f4xx.h"
+#include "stm32f4xx.h"
 
 
 void fpu_enable( void )
